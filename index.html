@@ -36,6 +36,24 @@
       reveal();
       if (!window.gsap || reduceMotion) return;
       gsap.registerPlugin(ScrollTrigger);
+      document.body.insertAdjacentHTML('beforeend', '<div class="cursor-orb" aria-hidden="true"></div><div class="cursor-ring" aria-hidden="true"></div>');
+      const orb = document.querySelector('.cursor-orb');
+      const ring = document.querySelector('.cursor-ring');
+      const orbX = gsap.quickTo(orb, 'x', { duration: .24, ease: 'power3.out' });
+      const orbY = gsap.quickTo(orb, 'y', { duration: .24, ease: 'power3.out' });
+      const ringX = gsap.quickTo(ring, 'x', { duration: .55, ease: 'power3.out' });
+      const ringY = gsap.quickTo(ring, 'y', { duration: .55, ease: 'power3.out' });
+      window.addEventListener('pointermove', (event) => { orbX(event.clientX); orbY(event.clientY); ringX(event.clientX); ringY(event.clientY); });
+      document.querySelectorAll('a, button, .project-card').forEach((target) => {
+        target.addEventListener('mouseenter', () => document.body.classList.add('cursor-active'));
+        target.addEventListener('mouseleave', () => document.body.classList.remove('cursor-active'));
+      });
+      gsap.to('.hero-portrait', { yPercent: -8, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1 } });
+      gsap.to('.hero-copy', { yPercent: 10, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1 } });
+      gsap.to('.hero h1 em', { color: '#ff5a1f', letterSpacing: '.02em', ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1 } });
+      gsap.utils.toArray('.project-image').forEach((image) => {
+        gsap.to(image, { yPercent: -8, ease: 'none', scrollTrigger: { trigger: image, start: 'top bottom', end: 'bottom top', scrub: 1 } });
+      });
       const intro = gsap.timeline({ defaults: { ease: 'power4.out' } });
       intro.from('.hero-copy .eyebrow', { y: 24, opacity: 0, duration: .7 })
         .from('.hero-copy h1', { y: 100, opacity: 0, duration: 1.15 }, '-=.35')
@@ -58,6 +76,7 @@
       document.querySelectorAll('.project-card').forEach(card => {
         const visible = filter === 'all' || card.classList.contains(filter);
         card.classList.toggle('is-hidden', !visible);
+        if (visible && window.gsap && !reduceMotion) gsap.fromTo(card, { autoAlpha: 0, y: 22 }, { autoAlpha: 1, y: 0, duration: .55, ease: 'power3.out', overwrite: true });
       });
     }));
     document.querySelectorAll('.accordion-item').forEach(item => item.addEventListener('click', () => {
