@@ -22,17 +22,48 @@
         <article class="project-card explore"><div class="project-number">03</div><div class="project-image project-lab"><span>LAB / 01</span></div><div class="project-meta"><h3>Experiments</h3><p>Interfaces, animations et prototypes</p><div><span>UI motion</span><span>Creative code</span><a href="https://github.com/DanielBeni-tech" target="_blank" rel="noreferrer">GitHub ↗</a></div></div></article>
       </div></section>
       <section id="services" class="services section reveal"><div class="section-kicker">03 / EXPERTISE</div><div class="services-layout"><h2>Ce que je peux<br>construire <em>avec vous.</em></h2><div class="accordion"><button class="accordion-item open"><span>01</span><b>Développement web</b><i>↘</i><p>Applications rapides, accessibles et maintenables avec React, Next.js, TypeScript et Node.js.</p></button><button class="accordion-item"><span>02</span><b>Produit & interface</b><i>↘</i><p>Des interfaces claires, des prototypes utiles et des parcours pensés pour vos utilisateurs.</p></button><button class="accordion-item"><span>03</span><b>Architecture & déploiement</b><i>↘</i><p>Du choix technique au déploiement, je rends vos produits fiables et prêts à évoluer.</p></button></div></div></section>
-      <section id="challenge" class="challenge section reveal"><div class="challenge-mark">✳</div><div><div class="section-kicker">04 / DÉFI</div><h2>Les problèmes difficiles<br>méritent de <em>belles solutions.</em></h2><p>Chaque projet est une invitation à apprendre, expérimenter et faire mieux que la veille.</p></div><a class="button button-light" href="mailto:daniel100beni@gmail.com">Me challenger ↗</a></section>
-      <section id="contact" class="contact section reveal"><div class="section-kicker">05 / CONTACT</div><h2>Une idée en tête ?<br><em>Parlons-en.</em></h2><div class="contact-bottom"><a class="big-email" href="mailto:daniel100beni@gmail.com">daniel100beni@gmail.com <span>↗</span></a><div class="contact-links"><a href="https://github.com/DanielBeni-tech" target="_blank" rel="noreferrer">GitHub ↗</a><a href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn ↗</a><span>Yaoundé, Cameroun</span></div></div></section>
+      <section id="contact" class="contact section reveal"><div class="section-kicker">04 / CONTACT</div><h2>Une idée en tête ?<br><em>Parlons-en.</em></h2><div class="contact-bottom"><a class="big-email" href="mailto:daniel100beni@gmail.com">daniel100beni@gmail.com <span>↗</span></a><div class="contact-links"><a href="https://github.com/DanielBeni-tech" target="_blank" rel="noreferrer">GitHub ↗</a><a href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn ↗</a><span>Yaoundé, Cameroun</span></div></div></section>
     </main>
     <footer><span>© 2026 Daniel Beni</span><span>Conçu et développé avec intention.</span><a href="#home">Retour en haut ↑</a></footer>
   </div>
   <script src="js/gsap.min.js"></script><script src="js/ScrollTrigger.min.js"></script><script src="js/Splitetext.js"></script>
   <script>
-    const reveal=()=>document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.setProperty('--delay',`${i*80}ms`);el.classList.add('visible')});
-    window.addEventListener('load',()=>{reveal();if(window.gsap){gsap.from('.hero-copy h1',{y:90,opacity:0,duration:1.2,ease:'power4.out'});gsap.from('.hero-portrait',{scale:.85,opacity:0,duration:1.2,delay:.25,ease:'power3.out'});gsap.to('.portrait-frame',{y:-12,repeat:-1,yoyo:true,duration:3,ease:'sine.inOut'});}});
-    document.querySelectorAll('.filter').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));btn.classList.add('active');const f=btn.dataset.filter;document.querySelectorAll('.project-card').forEach(card=>card.style.display=f==='all'||card.classList.contains(f)?'block':'none')}));
-    document.querySelectorAll('.accordion-item').forEach(item=>item.addEventListener('click',()=>{document.querySelectorAll('.accordion-item').forEach(x=>x.classList.remove('open'));item.classList.add('open')}));
-    document.querySelector('.menu-toggle').addEventListener('click',()=>document.querySelector('nav').classList.toggle('show'));
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const reveal = () => document.querySelectorAll('.reveal').forEach((el, i) => { el.style.setProperty('--delay', `${i * 80}ms`); el.classList.add('visible'); });
+    const showNav = () => document.querySelector('nav').classList.toggle('show');
+
+    window.addEventListener('load', () => {
+      reveal();
+      if (!window.gsap || reduceMotion) return;
+      gsap.registerPlugin(ScrollTrigger);
+      const intro = gsap.timeline({ defaults: { ease: 'power4.out' } });
+      intro.from('.hero-copy .eyebrow', { y: 24, opacity: 0, duration: .7 })
+        .from('.hero-copy h1', { y: 100, opacity: 0, duration: 1.15 }, '-=.35')
+        .from('.hero-intro, .hero-actions', { y: 28, opacity: 0, duration: .8, stagger: .1 }, '-=.55')
+        .from('.hero-portrait', { scale: .86, opacity: 0, duration: 1.1 }, '-=.8');
+      gsap.to('.portrait-frame', { y: -12, repeat: -1, yoyo: true, duration: 3, ease: 'sine.inOut' });
+      gsap.utils.toArray('.section').forEach((section) => {
+        gsap.from(section.querySelectorAll('.section-kicker, h2, .lead, .project-card, .accordion-item, .photo-strip img'), {
+          y: 48, opacity: 0, duration: .8, stagger: .08, ease: 'power3.out',
+          scrollTrigger: { trigger: section, start: 'top 78%', once: true }
+        });
+      });
+      gsap.to('.side-rail', { y: 18, repeat: -1, yoyo: true, duration: 2.8, ease: 'sine.inOut' });
+    });
+
+    document.querySelectorAll('.filter').forEach(btn => btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter').forEach(x => x.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      document.querySelectorAll('.project-card').forEach(card => {
+        const visible = filter === 'all' || card.classList.contains(filter);
+        card.classList.toggle('is-hidden', !visible);
+      });
+    }));
+    document.querySelectorAll('.accordion-item').forEach(item => item.addEventListener('click', () => {
+      document.querySelectorAll('.accordion-item').forEach(x => x.classList.remove('open'));
+      item.classList.add('open');
+    }));
+    document.querySelector('.menu-toggle').addEventListener('click', showNav);
   </script>
 </body></html>
