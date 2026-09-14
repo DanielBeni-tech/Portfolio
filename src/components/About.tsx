@@ -5,25 +5,26 @@ import { Reveal } from '@/components/Reveal';
 
 export function About() {
   return (
-    <section id="about" className="py-24 lg:py-40 border-t border-line">
-      <div className="max-w-container mx-auto px-6 lg:px-10">
+    <section id="about" className="px-3 py-16 md:px-6 md:py-28">
+      <div className="mx-auto max-w-[1440px]">
+        {/* Section header */}
         <Reveal>
-          <div className="flex items-baseline justify-between mb-16 lg:mb-24">
-            <div className="font-mono text-xs text-muted tracking-widest uppercase">
-              05 — About
-            </div>
-            <div className="font-mono text-xs text-muted tracking-widest uppercase hidden sm:block">
-              Profile
-            </div>
+          <div className="flex items-baseline justify-between mb-10 md:mb-16">
+            <h2 className="font-mono text-sm uppercase tracking-[0.2em] text-muted">
+              /À propos
+            </h2>
+            <span className="font-mono text-xs text-muted hidden md:block">
+              Yaoundé · Cameroun
+            </span>
           </div>
         </Reveal>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10">
           {/* Photos */}
           <div className="lg:col-span-5 lg:col-start-1">
             <Reveal>
               <div className="relative">
-                <div className="rounded-xl overflow-hidden border border-line mb-4 aspect-[4/5]">
+                <div className="img-zoom rounded-2xl overflow-hidden border border-line mb-4 aspect-[4/5] frame">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src="/photos/daniel-portrait.jpeg"
@@ -32,11 +33,11 @@ export function About() {
                     loading="lazy"
                   />
                 </div>
-                <div className="rounded-xl overflow-hidden border border-line aspect-[16/10]">
+                <div className="img-zoom rounded-2xl overflow-hidden border border-line aspect-[16/10] frame">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src="/photos/daniel-desk.jpeg"
-                    alt="Daniel Beni at work"
+                    alt="Daniel Beni au travail"
                     className="w-full h-full object-cover"
                     loading="lazy"
                   />
@@ -45,32 +46,85 @@ export function About() {
             </Reveal>
           </div>
 
-          {/* Narrative */}
+          {/* Narrative + Story + Stats */}
           <div className="lg:col-span-6 lg:col-start-7 flex flex-col justify-center">
-            <Reveal delay={100}>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight mb-8 leading-tight">
+            <Reveal delay={80}>
+              <h3 className="text-2xl md:text-4xl font-display font-bold mb-6 leading-tight">
                 {profile.summary}
-              </h2>
+              </h3>
             </Reveal>
 
-            <Reveal delay={200}>
-              <p className="text-lg text-muted leading-relaxed mb-8 max-w-lg">
+            <Reveal delay={160}>
+              <p className="text-base text-muted leading-relaxed mb-8 max-w-lg">
                 {profile.bio}
               </p>
             </Reveal>
 
-            <Reveal delay={300}>
+            {/* What I offer */}
+            <Reveal delay={220}>
+              <div className="bg-ink text-white rounded-2xl p-6 mb-8 max-w-lg">
+                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/50 mb-3">
+                  Ce que je propose
+                </p>
+                <p className="text-base leading-relaxed font-medium">
+                  {profile.whatIOffer}
+                </p>
+              </div>
+            </Reveal>
+
+            {/* Timeline / Story */}
+            <div className="space-y-4 mb-8">
+              {profile.aboutStory.map((item, i) => (
+                <Reveal key={item.year} delay={280 + i * 80}>
+                  <div className="flex gap-4 group">
+                    <div className="flex flex-col items-center pt-1">
+                      <span className="font-mono text-xs font-bold text-accent whitespace-nowrap">
+                        {item.year}
+                      </span>
+                      <div className="w-px h-full bg-line mt-2 group-hover:bg-accent/30 transition-colors duration-500" />
+                    </div>
+                    <div className="pb-4">
+                      <h4 className="text-sm font-bold mb-1">{item.title}</h4>
+                      <p className="text-sm text-muted leading-relaxed">{item.text}</p>
+                    </div>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+
+            {/* Stats */}
+            <Reveal delay={520}>
               <div className="border-t border-line pt-6">
-                <div className="font-mono text-xs text-muted tracking-widest uppercase mb-4">
-                  Current Focus
+                <div className="font-mono text-[10px] text-muted tracking-widest uppercase mb-4">
+                  En chiffres
+                </div>
+                <div className="grid grid-cols-2 gap-4">
+                  {profile.stats.map((stat) => (
+                    <div key={stat.label} className="group">
+                      <div className="text-2xl md:text-3xl font-display font-bold text-ink group-hover:text-accent transition-colors duration-300">
+                        {stat.value}
+                      </div>
+                      <div className="text-xs text-muted mt-1">{stat.label}</div>
+                      <div className="text-[10px] font-mono text-muted/60 mt-0.5">{stat.project}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </Reveal>
+
+            {/* Current focus */}
+            <Reveal delay={600}>
+              <div className="border-t border-line pt-6 mt-2">
+                <div className="font-mono text-[10px] text-muted tracking-widest uppercase mb-4">
+                  Focus actuel
                 </div>
                 <ul className="space-y-2">
                   {profile.currentFocus.map((focus) => (
                     <li
                       key={focus}
-                      className="flex items-center gap-3 text-text/90"
+                      className="flex items-center gap-3 text-sm text-ink/80"
                     >
-                      <span className="w-1.5 h-1.5 rounded-full bg-blue" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
                       {focus}
                     </li>
                   ))}

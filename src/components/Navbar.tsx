@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { profile } from '@/content/profile';
 
 const navItems = [
+  { label: 'À propos', href: '#about' },
   { label: 'Projets', href: '#projects', count: 6 },
   { label: 'Services', href: '#services', count: 4 },
   { label: 'Expérience', href: '#experience', count: 4 },
@@ -29,11 +30,11 @@ export function Navbar() {
         }`}
       >
         <nav className="max-w-container mx-auto px-4 md:px-6 h-14 md:h-16 flex items-center justify-between">
-          <div className="pill text-xs">
+          <a href="#top" className="pill text-xs">
             <span className="status-dot" />
             <span className="hidden sm:inline">Disponible pour de nouveaux projets</span>
             <span className="sm:hidden">Disponible</span>
-          </div>
+          </a>
 
           <div className="hidden md:flex items-center gap-6">
             {navItems.map((item) => (
@@ -51,6 +52,7 @@ export function Navbar() {
           <a
             href={`mailto:${profile.email}`}
             className="btn-dark text-xs md:text-sm hidden md:inline-flex"
+            data-cursor="Écrire"
           >
             Parlons-en →
           </a>

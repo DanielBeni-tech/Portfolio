@@ -3,6 +3,7 @@ import { Manrope, Poppins, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
+import { CustomCursor } from '@/components/CustomCursor';
 
 const manrope = Manrope({
   subsets: ['latin'],
@@ -42,6 +43,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             aria-hidden="true"
             className="fixed inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,#d9d9d9,#a9a9a9)]"
           />
+          <CustomCursor />
           <Navbar />
           {children}
           <Footer />
