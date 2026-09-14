@@ -3,13 +3,6 @@
 import { projects } from '@/content/projects';
 import { Reveal } from '@/components/Reveal';
 
-const statusLabels: Record<string, string> = {
-  shipped: 'Shipped',
-  building: 'Building',
-  experimental: 'Experimental',
-  paused: 'Paused',
-};
-
 export function SelectedWork() {
   return (
     <section id="work" className="py-24 lg:py-40 border-t border-line">
@@ -48,31 +41,25 @@ export function SelectedWork() {
                     <h3 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-text group-hover:text-blue transition-colors duration-500">
                       {project.title}
                     </h3>
-                    <p className="text-sm text-muted mt-1">{project.subtitle}</p>
+                    <p className="text-sm text-muted mt-1">{project.description}</p>
                   </div>
 
                   {/* Categories */}
                   <div className="hidden lg:flex col-span-3 flex-wrap gap-2">
-                    {project.categories.map((cat) => (
+                    {project.tags.map((tag) => (
                       <span
-                        key={cat}
-                        className="font-mono text-[10px] text-muted tracking-widest uppercase border border-line px-2 py-1 rounded"
+                        key={tag}
+                        className="font-mono text-xs text-muted tracking-widest uppercase border border-line px-2 py-1 rounded"
                       >
-                        {cat}
+                        {tag}
                       </span>
                     ))}
                   </div>
 
                   {/* Status + year */}
                   <div className="col-span-12 lg:col-span-3 flex items-center justify-between lg:justify-end gap-4 mt-2 lg:mt-0">
-                    <span
-                      className={`status-badge status-${project.status}`}
-                    >
-                      <span className="status-dot" />
-                      {statusLabels[project.status]}
-                    </span>
-                    <span className="font-mono text-xs text-muted tracking-widest">
-                      {project.year}
+                    <span className="font-mono text-xs text-muted tracking-widest uppercase">
+                      {project.category}
                     </span>
                   </div>
                 </div>
