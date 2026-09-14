@@ -1,20 +1,18 @@
 import { Hero } from '@/components/Hero';
-import { SelectedWork } from '@/components/SelectedWork';
-import { WhatIBuild } from '@/components/WhatIBuild';
-import { Experiments } from '@/components/Experiments';
+import { Projects } from '@/components/Projects';
+import { Services } from '@/components/Services';
+import { Experience } from '@/components/Experience';
 import { Community } from '@/components/Community';
-import { About } from '@/components/About';
 import { Contact } from '@/components/Contact';
 
 export default function Home() {
   return (
     <main>
       <Hero />
-      <SelectedWork />
-      <WhatIBuild />
-      <Experiments />
+      <Projects />
+      <Services />
+      <Experience />
       <Community />
-      <About />
       <Contact />
     </main>
   );

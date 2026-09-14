@@ -5,54 +5,47 @@ import { Reveal } from '@/components/Reveal';
 
 export function Community() {
   return (
-    <section id="community" className="py-24 lg:py-40 border-t border-line bg-surface">
-      <div className="max-w-container mx-auto px-6 lg:px-10">
+    <section id="community" className="px-3 py-12 md:px-6 md:py-20">
+      <div className="mx-auto max-w-[1440px]">
         <Reveal>
-          <div className="flex items-baseline justify-between mb-16 lg:mb-24">
-            <div className="font-mono text-xs text-muted tracking-widest uppercase">
-              04 — Community
-            </div>
-            <div className="font-mono text-xs text-muted tracking-widest uppercase hidden sm:block">
-              Ecosystem Building
-            </div>
-          </div>
-        </Reveal>
-
-        <Reveal>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight max-w-3xl mb-16 lg:mb-24 leading-tight">
-            I don&apos;t only build software.
-            <br />
-            <span className="text-blue">I build people around technology.</span>
+          <h2 className="font-mono text-sm uppercase tracking-[0.2em] text-muted mb-8">
+            /Communauté
           </h2>
         </Reveal>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <Reveal delay={80}>
+          <p className="text-2xl md:text-4xl font-display font-bold max-w-3xl mb-12 leading-tight">
+            Je ne construis pas seulement du logiciel.
+            <br />
+            <span className="text-accent">
+              Je construis des gens autour de la technologie.
+            </span>
+          </p>
+        </Reveal>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
           {communityActivities.map((act, i) => (
             <Reveal key={act.id} delay={i * 100}>
-              <div className="border border-line rounded-xl p-8 lg:p-10 h-full hover:border-blue/30 transition-colors duration-500">
-                <div className="flex items-start justify-between mb-6">
+              <div className="border border-line rounded-2xl p-6 md:p-8 bg-paper hover:border-ink/20 hover:shadow-lg transition-all duration-500 h-full">
+                <div className="flex items-start justify-between mb-4">
                   <div>
-                    <h3 className="text-xl lg:text-2xl font-semibold mb-1">
-                      {act.organization}
-                    </h3>
-                    <p className="font-mono text-xs text-blue tracking-widest uppercase">
+                    <h3 className="text-xl font-bold mb-1">{act.organization}</h3>
+                    <p className="font-mono text-xs text-accent uppercase tracking-wider">
                       {act.role}
                     </p>
                   </div>
-                  <span className="font-mono text-xs text-muted tracking-widest">
-                    {act.year}
-                  </span>
+                  <span className="font-mono text-xs text-muted">{act.period}</span>
                 </div>
-                <p className="text-muted leading-relaxed mb-6">
+                <p className="text-muted leading-relaxed mb-4 text-sm">
                   {act.description}
                 </p>
                 <ul className="space-y-2">
                   {act.activities.map((activity) => (
                     <li
                       key={activity}
-                      className="flex items-start gap-3 text-sm text-text/80"
+                      className="flex items-start gap-2 text-sm text-ink/80"
                     >
-                      <span className="text-blue mt-1.5 text-xs">▸</span>
+                      <span className="text-accent mt-0.5 text-xs">▸</span>
                       {activity}
                     </li>
                   ))}

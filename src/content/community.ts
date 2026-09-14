@@ -1,30 +1,39 @@
-import type { CommunityActivity } from '@/lib/types';
+export interface CommunityItem {
+  id: string;
+  organization: string;
+  role: string;
+  description: string;
+  period: string;
+  activities: string[];
+}
 
-export const communityActivities: CommunityActivity[] = [
+export const communityActivities: CommunityItem[] = [
   {
     id: 'supptic',
     organization: "SUP'PTIC Computer Club",
-    role: 'Founder & Lead',
-    description: 'A technical community at SUP\u2019PTIC that brings students together around software, AI, and hands-on building.',
-    year: '2023 — Present',
+    role: 'Fondateur & Lead',
+    description:
+      "Une communauté technique à SUP'PTIC qui rassemble les étudiants autour du logiciel, de l'IA et de la construction pratique.",
+    period: '2023 — Présent',
     activities: [
-      'Workshops on Python, AI, and web development',
-      'Hackathons and project sprints',
-      'Peer mentoring and code reviews',
-      'Connecting students with real-world projects',
+      'Ateliers Python, IA et développement web',
+      'Hackathons et sprints de projets',
+      'Mentorat entre pairs et revues de code',
+      'Connexion des étudiants à des projets réels',
     ],
   },
   {
     id: 'claude-cameroon',
     organization: 'Claude Cameroon',
     role: 'Community Builder',
-    description: 'A local AI community exploring Claude and LLM tools — making AI education accessible across Cameroon.',
-    year: '2024 — Present',
+    description:
+      "Une communauté IA locale explorant Claude et les outils LLM — rendre l'éducation IA accessible au Cameroun.",
+    period: '2024 — Présent',
     activities: [
-      'AI literacy sessions',
-      'Prompt engineering workshops',
-      'Local language AI exploration',
-      'Connecting builders with opportunities',
+      'Sessions de littératie IA',
+      'Ateliers de prompt engineering',
+      'Exploration IA en langues locales',
+      'Connexion des builders avec des opportunités',
     ],
   },
 ];

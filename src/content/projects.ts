@@ -1,57 +1,66 @@
-import type { Project } from '@/lib/types';
+export interface ProjectItem {
+  id: string;
+  title: string;
+  description: string;
+  category: 'real' | 'experiment';
+  tags: string[];
+  cover: string;
+  link?: string;
+}
 
-export const projects: Project[] = [
+export const projects: ProjectItem[] = [
   {
     id: 'gblrecover',
-    slug: 'gblrecover',
     title: 'GBLRecover',
-    subtitle: 'Revenue Assurance Platform',
-    year: 2024,
-    status: 'shipped',
-    featured: true,
-    categories: ['ai', 'software', 'data'],
-    role: ['Full-Stack Developer', 'System Designer'],
-    stack: ['Python', 'FastAPI', 'PostgreSQL', 'Data Analysis'],
-    problem: 'CAMTEL needed a systematic way to detect and recover revenue leakage across a large subscriber base.',
-    solution: 'Built a revenue assurance platform that analyzes billing data, flags anomalies, and generates recovery workflows — turning manual audit into an automated pipeline.',
-    outcome: [
-      'Processed 50,606+ accounts',
-      'Automated anomaly detection pipeline',
-      'Reduced manual audit overhead',
-    ],
-    cover: 'gradient-blue',
-    links: {},
+    description:
+      "Plateforme de Revenue Assurance pour CAMTEL — détection automatisée des fuites de revenus sur 50 606+ comptes.",
+    category: 'real',
+    tags: ['Python', 'FastAPI', 'PostgreSQL', 'Data Analysis'],
+    cover: 'cover-blue',
   },
   {
     id: 'carburflow',
-    slug: 'carburflow',
     title: 'CARBURFLOW',
-    subtitle: 'Fuel Management System',
-    year: 2024,
-    status: 'building',
-    featured: true,
-    categories: ['software', 'data'],
-    role: ['Product Builder', 'Mobile Developer'],
-    stack: ['Flutter', 'Firebase', 'Dart'],
-    problem: 'Tracking fuel consumption and distribution in real time requires a mobile-first system that works across stations and fleets.',
-    solution: 'A cross-platform application for monitoring fuel flow, generating consumption reports, and flagging discrepancies — built for operators in the field.',
-    cover: 'gradient-orange',
-    links: {},
+    description:
+      "Système de gestion de carburant en temps réel — suivi de consommation, rapports et alertes pour stations et flottes.",
+    category: 'real',
+    tags: ['Flutter', 'Firebase', 'Dart'],
+    cover: 'cover-orange',
   },
   {
     id: 'camtel-ai',
-    slug: 'camtel-ai',
     title: 'Camtel AI',
-    subtitle: 'AI-Powered Telecom Solutions',
-    year: 2024,
-    status: 'building',
-    featured: true,
-    categories: ['ai', 'software'],
-    role: ['AI Engineer', 'Backend Developer'],
-    stack: ['Python', 'LLM', 'FastAPI', 'NLP'],
-    problem: 'Telecom customer support and data processing can benefit from AI-assisted automation without replacing human operators.',
-    solution: 'An AI layer that assists with customer queries, document processing, and internal data retrieval — designed to augment rather than replace human teams.',
-    cover: 'gradient-mixed',
-    links: {},
+    description:
+      "Couche IA pour le support client et le traitement de documents — conçue pour augmenter les équipes humaines, pas les remplacer.",
+    category: 'real',
+    tags: ['Python', 'LLM', 'FastAPI', 'NLP'],
+    cover: 'cover-mixed',
+  },
+  {
+    id: 'local-ai',
+    title: 'Local AI',
+    description:
+      "Exécution de LLMs en local avec Ollama pour l'inférence privée et hors ligne.",
+    category: 'experiment',
+    tags: ['Ollama', 'Python', 'llama.cpp'],
+    cover: 'cover-green',
+  },
+  {
+    id: 'ai-agents',
+    title: 'AI Agents',
+    description:
+      "Agents autonomes qui planifient, exécutent et apprennent à partir de tâches complexes.",
+    category: 'experiment',
+    tags: ['Python', 'LangChain', 'OpenAI'],
+    cover: 'cover-purple',
+  },
+  {
+    id: 'rag',
+    title: 'RAG System',
+    description:
+      "Système de génération augmentée par récupération sur des bases de connaissances curées.",
+    category: 'experiment',
+    tags: ['pgvector', 'Python', 'Embeddings'],
+    cover: 'cover-teal',
   },
 ];
