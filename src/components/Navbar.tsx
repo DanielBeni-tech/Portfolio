@@ -5,10 +5,9 @@ import { profile } from '@/content/profile';
 
 const navItems = [
   { label: 'À propos', href: '#about' },
-  { label: 'Projets', href: '#projects', count: 6 },
-  { label: 'Services', href: '#services', count: 4 },
-  { label: 'Expérience', href: '#experience', count: 4 },
-  { label: 'Communauté', href: '#community' },
+  { label: 'Projets', href: '#projects', count: 3 },
+  { label: 'Compétences', href: '#services', count: 4 },
+  { label: 'Parcours', href: '#experience' },
   { label: 'Contact', href: '#contact' },
 ];
 

@@ -50,7 +50,7 @@ export function Hero() {
               </defs>
               <text className="fill-ink font-mono text-[8.5px] font-bold uppercase tracking-wider">
                 <textPath href="#hero-circle" textLength="220" lengthAdjust="spacing">
-                  AI ENGINEER · BUILDER ·
+                  TÉLÉCOM · IA · RÉSEAUX ·
                 </textPath>
               </text>
             </svg>

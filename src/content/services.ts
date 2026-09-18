@@ -7,31 +7,31 @@ export interface ServiceItem {
 
 export const services: ServiceItem[] = [
   {
-    id: 'ai',
-    title: 'Systèmes IA & LLM',
+    id: 'backend',
+    title: 'Backend & APIs',
     description:
-      "Applications LLM, pipelines RAG, agents autonomes et IA locale — des systèmes qui raisonnent et assistent.",
-    icon: 'ai',
-  },
-  {
-    id: 'fullstack',
-    title: 'Développement Full-Stack',
-    description:
-      "Produits web et mobiles de l'idée au déploiement — APIs, applications Flutter et plateformes Next.js.",
+      "Conception de services backend, APIs et bases de données avec Python, Django, FastAPI et PostgreSQL.",
     icon: 'code',
   },
   {
-    id: 'data',
-    title: 'Produits Data & Automation',
+    id: 'fullstack',
+    title: 'Produits Full-Stack',
     description:
-      "Transformation de données brutes en pipelines automatisés, analytics et systèmes de Revenue Assurance.",
-    icon: 'data',
+      "Interfaces React et produits web complets, de la compréhension du besoin jusqu'à une solution déployable avec Docker.",
+    icon: 'web',
   },
   {
-    id: 'community',
-    title: 'Communauté & Formation Tech',
+    id: 'ai-data',
+    title: 'IA & Data appliquées',
     description:
-      "Ateliers, mentorat et littératie IA — construire des communautés techniques au Cameroun.",
-    icon: 'community',
+      "Chatbots, recherche sémantique, pipelines RAG et outils de connaissance qui rendent les données plus faciles à exploiter.",
+    icon: 'ai',
+  },
+  {
+    id: 'networks-iot',
+    title: 'Réseaux & IoT',
+    description:
+      "Bases solides en IPv4/IPv6, VLAN, OSPF, ACL, systèmes embarqués, Arduino, ESP32 et capteurs.",
+    icon: 'network',
   },
 ];

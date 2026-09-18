@@ -49,13 +49,13 @@ export function Footer() {
             <div className="flex gap-8 animate-marquee whitespace-nowrap">
               {[...Array(2)].map((_, dup) => (
                 <div key={dup} className="flex gap-8 shrink-0">
-                  <span className="font-display text-3xl md:text-5xl font-bold text-ink">AI ENGINEER</span>
-                  <span className="font-display text-3xl md:text-5xl font-bold text-outline">SOFTWARE BUILDER</span>
-                  <span className="font-display text-3xl md:text-5xl font-bold text-ink">COMMUNITY BUILDER</span>
+                  <span className="font-display text-3xl md:text-5xl font-bold text-ink">TÉLÉCOM</span>
+                  <span className="font-display text-3xl md:text-5xl font-bold text-outline">IA &amp; RÉSEAUX</span>
+                  <span className="font-display text-3xl md:text-5xl font-bold text-ink">EMBARQUÉ</span>
                   <span className="font-display text-3xl md:text-5xl font-bold text-outline">YAOUNDÉ</span>
-                  <span className="font-display text-3xl md:text-5xl font-bold text-ink">AI ENGINEER</span>
-                  <span className="font-display text-3xl md:text-5xl font-bold text-outline">SOFTWARE BUILDER</span>
-                  <span className="font-display text-3xl md:text-5xl font-bold text-ink">COMMUNITY BUILDER</span>
+                  <span className="font-display text-3xl md:text-5xl font-bold text-ink">TÉLÉCOM</span>
+                  <span className="font-display text-3xl md:text-5xl font-bold text-outline">IA &amp; RÉSEAUX</span>
+                  <span className="font-display text-3xl md:text-5xl font-bold text-ink">EMBARQUÉ</span>
                   <span className="font-display text-3xl md:text-5xl font-bold text-outline">YAOUNDÉ</span>
                 </div>
               ))}

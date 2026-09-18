@@ -9,34 +9,36 @@ export interface ExperienceItem {
 export const experiences: ExperienceItem[] = [
   {
     id: 'camtel',
-    role: 'Développeur IA / Revenue Assurance',
-    company: 'CAMTEL',
+    role: 'Stagiaire — Développement full-stack',
+    company: 'CAMTEL · Service de la Lutte contre la Fraude',
+    period: 'Juillet — Septembre 2026',
+    description:
+      "Conception et développement de CARBURFLOW pour la Business Unit Fixe et le Service de la Lutte contre la Fraude : supervision des niveaux et consommations de carburant, avec détection d'anomalies.",
+  },
+];
+
+export const education = [
+  {
+    period: '2024 — présent · 3e année',
+    title: "Ingénieur des Travaux en Télécommunications — Informatique & Réseaux",
+    institution: "SUP'PTIC · Yaoundé",
+  },
+  {
     period: '2024',
-    description:
-      "Conception et développement de GBLRecover — une plateforme de Revenue Assurance traitant 50 606+ comptes avec détection d'anomalies automatisée.",
+    title: 'Baccalauréat C',
+    institution: 'Lycée de Biyem-Assi',
   },
   {
-    id: 'supptic',
-    role: 'Fondateur & Lead',
-    company: "SUP'PTIC Computer Club",
-    period: '2023 — Présent',
-    description:
-      "Création et animation d'une communauté technique à SUP'PTIC — ateliers Python, IA, développement web, hackathons et mentorat entre étudiants.",
+    period: '2021 — 2023',
+    title: 'Formation en développement web et robotique',
+    institution: 'TIC Summit · Attestation en cours d’obtention',
   },
+];
+
+export const certifications = [
   {
-    id: 'claude-cameroon',
-    role: 'Community Builder',
-    company: 'Claude Cameroon',
-    period: '2024 — Présent',
-    description:
-      "Animation d'une communauté IA locale explorant Claude et les LLMs — ateliers de prompt engineering, littératie IA et opportunités pour les builders camerounais.",
-  },
-  {
-    id: 'independent',
-    role: 'Développeur Full-Stack',
-    company: 'Indépendant',
-    period: '2022 — Présent',
-    description:
-      "Conception et développement de produits logiciels pour clients et projets personnels — du back-end à l'interface, en passant par l'IA.",
+    period: 'Octobre 2025 — Avril 2026 · 400 h',
+    title: 'Programmeur Électronique & Systèmes Embarqués',
+    institution: 'OIF / D-CLIC · CNFPP',
   },
 ];

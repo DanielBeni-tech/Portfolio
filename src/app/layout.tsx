@@ -25,11 +25,11 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Daniel Beni — AI Engineer · Software Builder · Community Builder',
-  description: 'Je conçois des systèmes intelligents, des produits logiciels et des communautés techniques.',
+  title: 'Daniel Beni Mpodoul Wefisan — Télécommunications · Informatique & Réseaux',
+  description: 'Étudiant ingénieur en télécommunications, informatique et réseaux. Je construis des logiciels, des systèmes embarqués et des solutions IA.',
   openGraph: {
-    title: 'Daniel Beni — AI Engineer · Software Builder · Community Builder',
-    description: 'Je conçois des systèmes intelligents, des produits logiciels et des communautés techniques.',
+    title: 'Daniel Beni Mpodoul Wefisan — Télécommunications · Informatique & Réseaux',
+    description: 'Étudiant ingénieur en télécommunications, informatique et réseaux. Je construis des logiciels, des systèmes embarqués et des solutions IA.',
     type: 'website',
   },
 };

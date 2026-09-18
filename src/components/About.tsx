@@ -28,7 +28,7 @@ export function About() {
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src="/photos/daniel-portrait.jpeg"
-                    alt="Daniel Beni portrait"
+                    alt="Daniel Beni Mpodoul Wefisan"
                     className="w-full h-full object-cover"
                     loading="lazy"
                   />
@@ -46,7 +46,7 @@ export function About() {
             </Reveal>
           </div>
 
-          {/* Narrative + Story + Stats */}
+          {/* Narrative + Story + Stats + Skills */}
           <div className="lg:col-span-6 lg:col-start-7 flex flex-col justify-center">
             <Reveal delay={80}>
               <h3 className="text-2xl md:text-4xl font-display font-bold mb-6 leading-tight">
@@ -96,7 +96,7 @@ export function About() {
             <Reveal delay={520}>
               <div className="border-t border-line pt-6">
                 <div className="font-mono text-[10px] text-muted tracking-widest uppercase mb-4">
-                  En chiffres
+                  En bref
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                   {profile.stats.map((stat) => (
@@ -112,8 +112,36 @@ export function About() {
               </div>
             </Reveal>
 
-            {/* Current focus */}
+            {/* Skills */}
             <Reveal delay={600}>
+              <div className="border-t border-line pt-6 mt-2">
+                <div className="font-mono text-[10px] text-muted tracking-widest uppercase mb-4">
+                  Compétences clés
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {profile.skills.map((skill) => (
+                    <div key={skill.label}>
+                      <p className="font-mono text-[10px] text-accent uppercase tracking-wider mb-2">
+                        {skill.label}
+                      </p>
+                      <div className="flex flex-wrap gap-1.5">
+                        {skill.items.map((item) => (
+                          <span
+                            key={item}
+                            className="font-mono text-[10px] text-ink/80 uppercase tracking-wider border border-line px-2 py-1 rounded"
+                          >
+                            {item}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </Reveal>
+
+            {/* Current focus */}
+            <Reveal delay={680}>
               <div className="border-t border-line pt-6 mt-2">
                 <div className="font-mono text-[10px] text-muted tracking-widest uppercase mb-4">
                   Focus actuel

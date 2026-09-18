@@ -6,8 +6,7 @@ import { Reveal } from '@/components/Reveal';
 
 const filters = [
   { label: 'Tous', value: 'all' },
-  { label: 'Projets réels', value: 'real' },
-  { label: 'Explorations', value: 'experiment' },
+  { label: 'Projets de stage', value: 'real' },
 ];
 
 function ProjectCard({ project, index }: { project: ProjectItem; index: number }) {
@@ -125,7 +124,7 @@ export function Projects() {
               /Projets choisis
             </h2>
             <span className="font-mono text-xs text-muted">
-              {projects.length} projets
+              {projects.length} projets · CV 2026
             </span>
           </div>
         </Reveal>
@@ -133,9 +132,9 @@ export function Projects() {
         {/* Intro text */}
         <Reveal delay={80}>
           <p className="text-2xl md:text-4xl font-display font-bold max-w-3xl mb-10 md:mb-16 leading-tight">
-            Du problème réel à la solution déployée.
+            Trois projets présentés.
             <br />
-            <span className="text-accent">Voici ce que j'ai construit.</span>
+            <span className="text-accent">Du besoin réel à la solution déployée.</span>
           </p>
         </Reveal>
 

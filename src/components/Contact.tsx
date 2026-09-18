@@ -59,11 +59,14 @@ export function Contact() {
 
           {/* Location */}
           <Reveal delay={400}>
-            <div className="mt-10 pt-8 border-t border-line flex items-center gap-3 relative">
+            <div className="mt-10 pt-8 border-t border-line flex flex-wrap items-center gap-x-5 gap-y-2 relative">
               <span className="status-dot" />
               <span className="font-mono text-xs text-muted uppercase tracking-wider">
                 Basé à {profile.location} · Disponible pour de nouveaux projets
               </span>
+              <a href={`tel:${profile.phone.replaceAll(' ', '')}`} className="font-mono text-xs text-muted hover:text-accent transition-colors">
+                {profile.phone}
+              </a>
             </div>
           </Reveal>
         </div>
