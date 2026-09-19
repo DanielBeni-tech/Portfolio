@@ -25,11 +25,13 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Daniel Beni Mpodoul Wefisan — Télécommunications · Informatique & Réseaux',
-  description: 'Étudiant ingénieur en télécommunications, informatique et réseaux. Je construis des logiciels, des systèmes embarqués et des solutions IA.',
+  title: 'Daniel Beni Mpodol Welisan — Fullstack & Lead Developer',
+  description:
+    "Daniel Beni Mpodol Welisan — lead développeur fullstack (JavaScript et Python), frontend, UI/UX et IA. Portfolio et CV.",
   openGraph: {
-    title: 'Daniel Beni Mpodoul Wefisan — Télécommunications · Informatique & Réseaux',
-    description: 'Étudiant ingénieur en télécommunications, informatique et réseaux. Je construis des logiciels, des systèmes embarqués et des solutions IA.',
+    title: 'Daniel Beni Mpodol Welisan — Fullstack & Lead Developer',
+    description:
+      "Lead fullstack JS/Python, frontend & UX/UI. CARBURFLOW, SYNTRA, SUPONEAI, SONE, Club Info, Mabbtek.",
     type: 'website',
   },
 };
@@ -38,10 +40,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="fr" className={`${manrope.variable} ${poppins.variable} ${jetbrainsMono.variable}`}>
       <body>
-        <div className="grain relative isolate min-h-screen overflow-x-clip bg-[#b9b9b9]">
+        <div className="grain relative isolate min-h-screen overflow-x-clip bg-[#9a948a]">
           <div
             aria-hidden="true"
-            className="fixed inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,#d9d9d9,#a9a9a9)]"
+            className="fixed inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,#b7b1a6,#8a847a)]"
           />
           <CustomCursor />
           <Navbar />

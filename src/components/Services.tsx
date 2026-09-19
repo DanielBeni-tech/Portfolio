@@ -1,6 +1,7 @@
 'use client';
 
 import { services } from '@/content/services';
+import { profile } from '@/content/profile';
 import { Reveal } from '@/components/Reveal';
 
 const icons: Record<string, string> = {
@@ -29,9 +30,9 @@ export function Services() {
 
         <Reveal delay={80}>
           <p className="text-2xl md:text-4xl font-display font-bold max-w-3xl mb-10 md:mb-16 leading-tight">
-            Quatre domaines.
+            Lead fullstack, du pixel à l&apos;API.
             <br />
-            <span className="text-accent">Une seule approche : construire.</span>
+            <span className="text-accent">Frontend, UX, IA et culture télécom.</span>
           </p>
         </Reveal>
 
@@ -64,8 +65,8 @@ export function Services() {
 
         {/* Skills grid from profile */}
         <Reveal delay={160}>
-          <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {skills.map((skill) => (
+          <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {profile.skills.map((skill) => (
               <div key={skill.label} className="border border-line rounded-2xl p-5 bg-paper">
                 <h4 className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted mb-3">
                   {skill.label}
@@ -88,10 +89,3 @@ export function Services() {
     </section>
   );
 }
-
-const skills = [
-  { label: 'Développement', items: ['Python', 'React', 'PostgreSQL', 'Docker'] },
-  { label: 'Réseaux', items: ['IPv4 / IPv6', 'VLAN', 'OSPF', 'ACL'] },
-  { label: 'Embarqué & IoT', items: ['C / C++', 'Arduino', 'ESP32', 'Capteurs'] },
-  { label: 'IA & sécurité', items: ['NLP', 'RAG', 'Scikit-learn', 'Wireshark', 'Nmap'] },
-];

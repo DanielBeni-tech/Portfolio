@@ -8,19 +8,35 @@ export interface ExperienceItem {
 
 export const experiences: ExperienceItem[] = [
   {
+    id: 'freelance',
+    role: 'Freelance Developer',
+    company: 'Indépendant',
+    period: '2023 — présent',
+    description:
+      "Développement fullstack en indépendant : sites, applications et interfaces, en parallèle de la formation.",
+  },
+  {
     id: 'camtel',
-    role: 'Stagiaire — Développement full-stack',
-    company: 'CAMTEL · Service de la Lutte contre la Fraude',
+    role: 'Stagiaire — Fullstack & Lead Developer',
+    company: 'CAMTEL · Service de la Lutte contre la Fraude · Douala',
     period: 'Juillet — Septembre 2026',
     description:
-      "Conception et développement de CARBURFLOW pour la Business Unit Fixe et le Service de la Lutte contre la Fraude : supervision des niveaux et consommations de carburant, avec détection d'anomalies.",
+      "Lead fullstack de CARBURFLOW : frontend, UX/UI, API Django et dashboard, pour le Service de la Lutte contre la Fraude (Délégation Régionale du Littoral, Business Unit Fixe, Bepanda).",
+  },
+  {
+    id: 'amd',
+    role: 'Participant — AMD AI Academy Challenge',
+    company: 'LabLab.ai × AMD',
+    period: 'Septembre — Décembre 2026',
+    description:
+      "Sélectionné pour un challenge individuel de trois mois sur l'IA accélérée par GPU : LLMs, RAG, agents IA, MCP, IA multimodale, web agents, systèmes multi-agents et fine-tuning.",
   },
 ];
 
 export const education = [
   {
     period: '2024 — présent · 3e année',
-    title: "Ingénieur des Travaux en Télécommunications — Informatique & Réseaux",
+    title: 'Ingénieur des Travaux de Télécommunication — Informatique & Réseaux',
     institution: "SUP'PTIC · Yaoundé",
   },
   {
@@ -29,16 +45,15 @@ export const education = [
     institution: 'Lycée de Biyem-Assi',
   },
   {
-    period: '2021 — 2023',
-    title: 'Formation en développement web et robotique',
-    institution: 'TIC Summit · Attestation en cours d’obtention',
+    period: '2022 — 2023',
+    title: 'Développement web',
+    institution: 'Formation pratique',
+  },
+  {
+    period: '2021 — 2022',
+    title: 'Robotique et systèmes embarqués',
+    institution: 'Formation pratique',
   },
 ];
 
-export const certifications = [
-  {
-    period: 'Octobre 2025 — Avril 2026 · 400 h',
-    title: 'Programmeur Électronique & Systèmes Embarqués',
-    institution: 'OIF / D-CLIC · CNFPP',
-  },
-];
+export const certifications: { period: string; title: string; institution: string }[] = [];

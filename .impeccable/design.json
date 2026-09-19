@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-14T00:20:00.000Z",
+  "title": "Design System: Daniel Beni Portfolio",
+  "extensions": {
+    "colorMeta": {
+      "ink": { "role": "neutral", "displayName": "Ink", "canonical": "#050505" },
+      "signal": { "role": "primary", "displayName": "Signal blue", "canonical": "#3B82F6" },
+      "lamp": { "role": "secondary", "displayName": "Lamp amber", "canonical": "#F59E0B" }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Section titles and work names." },
+      "headline": { "displayName": "Headline", "purpose": "Hero statement only." },
+      "label": { "displayName": "Label", "purpose": "Coordinates, chain, HUGO." }
+    },
+    "motion": [
+      { "name": "ease-out", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "State and hover." }
+    ],
+    "breakpoints": [
+      { "name": "stack", "value": "900px" }
+    ]
+  }
+}

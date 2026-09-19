@@ -26,8 +26,8 @@ export function Contact() {
 
           <Reveal delay={200}>
             <p className="text-lg text-ink/70 max-w-xl mb-10 relative">
-              Ensemble, on peut créer quelque chose de clair et d'impactant.
-              Écris-moi, on en parle.
+              Lead fullstack, frontend / UX ou un sujet IA — le CV et
+              GitHub disent le reste. Écris-moi, on en parle.
             </p>
           </Reveal>
 
@@ -42,6 +42,22 @@ export function Contact() {
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} className="size-4">
                   <path d="M7 17 17 7M8 7h9v9" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
+              </a>
+              <a
+                href={profile.cvUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="pill text-sm"
+                data-cursor="CV"
+              >
+                Voir le CV ↗
+              </a>
+              <a
+                href={profile.cvUrl}
+                download="CV-Daniel-Beni.pdf"
+                className="pill text-sm"
+              >
+                Télécharger le CV
               </a>
               {profile.socials.map((social) => (
                 <a

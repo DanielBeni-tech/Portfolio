@@ -7,31 +7,31 @@ export interface ServiceItem {
 
 export const services: ServiceItem[] = [
   {
-    id: 'backend',
-    title: 'Backend & APIs',
+    id: 'frontend-ux',
+    title: 'Frontend & UX/UI',
     description:
-      "Conception de services backend, APIs et bases de données avec Python, Django, FastAPI et PostgreSQL.",
-    icon: 'code',
-  },
-  {
-    id: 'fullstack',
-    title: 'Produits Full-Stack',
-    description:
-      "Interfaces React et produits web complets, de la compréhension du besoin jusqu'à une solution déployable avec Docker.",
+      "Interfaces React, design systems, prototypage Figma et parcours applicatif (appflow) — le point où je mène les projets livrés.",
     icon: 'web',
   },
   {
-    id: 'ai-data',
-    title: 'IA & Data appliquées',
+    id: 'fullstack',
+    title: 'Fullstack JS & Python',
     description:
-      "Chatbots, recherche sémantique, pipelines RAG et outils de connaissance qui rendent les données plus faciles à exploiter.",
+      "Produits complets en JavaScript et Python : Node.js, React, Django, PostgreSQL et Docker, de l'API jusqu'à l'écran.",
+    icon: 'code',
+  },
+  {
+    id: 'ai',
+    title: 'Ingénierie IA',
+    description:
+      "LLMs, RAG, agents IA, fine-tuning et recherche sémantique — prolongé par le AMD AI Academy Challenge.",
     icon: 'ai',
   },
   {
-    id: 'networks-iot',
-    title: 'Réseaux & IoT',
+    id: 'networks',
+    title: 'Réseaux, IoT & sécurité',
     description:
-      "Bases solides en IPv4/IPv6, VLAN, OSPF, ACL, systèmes embarqués, Arduino, ESP32 et capteurs.",
+      "IPv4/IPv6, VLAN, OSPF, ACL, VPN site-à-site, Arduino, ESP32, capteurs, Wireshark et Nmap — le socle télécom.",
     icon: 'network',
   },
 ];
