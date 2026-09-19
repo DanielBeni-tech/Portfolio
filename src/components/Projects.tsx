@@ -62,12 +62,12 @@ function ProjectCard({ project }: { project: ProjectItem }) {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80" />
         <div className="absolute top-3 left-3 z-10">
-          <span className="bg-white/90 backdrop-blur-sm text-ink text-[10px] font-mono uppercase tracking-wider px-2 py-1 rounded-full">
+          <span className="bg-white/90 backdrop-blur-sm text-ink text-xs font-mono uppercase tracking-wider px-2 py-1 rounded-full">
             {project.category === 'real' ? 'Produit livré' : 'GitHub'}
           </span>
         </div>
         <div className="absolute top-3 right-3 z-10">
-          <span className="bg-ink/80 backdrop-blur-sm text-white text-[10px] font-mono uppercase tracking-wider px-2 py-1 rounded-full">
+          <span className="bg-ink/80 backdrop-blur-sm text-white text-xs font-mono uppercase tracking-wider px-2 py-1 rounded-full">
             {project.year}
           </span>
         </div>
@@ -75,7 +75,7 @@ function ProjectCard({ project }: { project: ProjectItem }) {
           <span className="text-white font-display text-lg font-bold tracking-tight drop-shadow-lg">
             {project.title}
           </span>
-          <p className="text-white/70 text-[10px] font-mono uppercase tracking-wider mt-0.5">
+          <p className="text-white/70 text-xs font-mono uppercase tracking-wider mt-0.5">
             {project.subtitle}
           </p>
         </div>
@@ -100,7 +100,7 @@ function ProjectCard({ project }: { project: ProjectItem }) {
           <ul className="space-y-1.5 mb-4">
             {project.outcomes.map((outcome) => (
               <li key={outcome} className="flex items-start gap-2 text-xs text-ink/70">
-                <span className="text-accent mt-0.5 text-[10px]">▸</span>
+                <span className="text-accent mt-0.5 text-xs">▸</span>
                 {outcome}
               </li>
             ))}
@@ -111,7 +111,7 @@ function ProjectCard({ project }: { project: ProjectItem }) {
           {project.tags.map((tag) => (
             <span
               key={tag}
-              className="font-mono text-[10px] text-muted uppercase tracking-wider"
+              className="font-mono text-xs text-muted uppercase tracking-wider"
             >
               {tag}
             </span>
@@ -168,9 +168,9 @@ export function Projects() {
         {/* Intro text */}
         <Reveal delay={80}>
           <p className="text-2xl md:text-4xl font-display font-bold max-w-3xl mb-10 md:mb-16 leading-tight">
-            Huit projets choisis.
+            Projets livrés, y compris en compétition.
             <br />
-            <span className="text-accent">Lead fullstack sur chacun d&apos;eux.</span>
+            <span className="text-accent">SANGO au Hackverse · SYNTRA à JUIN.</span>
           </p>
         </Reveal>
 

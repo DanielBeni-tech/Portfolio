@@ -20,9 +20,9 @@ export function Experience() {
 
         <Reveal delay={80}>
           <p className="text-2xl md:text-4xl font-display font-bold max-w-3xl mb-10 md:mb-16 leading-tight">
-            Lead fullstack à CAMTEL,
+            Freelance depuis 2023,
             <br />
-            <span className="text-accent">puis le challenge AMD.</span>
+            <span className="text-accent">stage CAMTEL, puis AMD.</span>
           </p>
         </Reveal>
 
@@ -77,27 +77,28 @@ export function Experience() {
           </div>
         </div>
 
-        {/* Certifications */}
-        <div>
-          <Reveal>
-            <h3 className="font-mono text-xs uppercase tracking-[0.2em] text-muted mb-4">
-              Certification
-            </h3>
-          </Reveal>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {certifications.map((cert, i) => (
-              <Reveal key={cert.title} delay={i * 80}>
-                <div className="border border-line rounded-2xl p-6 bg-paper card-lift hover:border-ink/20 h-full group">
-                  <span className="font-mono text-xs text-muted uppercase tracking-wider block mb-3 group-hover:text-accent transition-colors">
-                    {cert.period}
-                  </span>
-                  <h4 className="text-sm font-bold mb-2 leading-snug">{cert.title}</h4>
-                  <p className="text-xs text-muted">{cert.institution}</p>
-                </div>
-              </Reveal>
-            ))}
+        {certifications.length > 0 && (
+          <div>
+            <Reveal>
+              <h3 className="font-mono text-xs uppercase tracking-[0.2em] text-muted mb-4">
+                Certification
+              </h3>
+            </Reveal>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {certifications.map((cert, i) => (
+                <Reveal key={cert.title} delay={i * 80}>
+                  <div className="border border-line rounded-2xl p-6 bg-paper card-lift hover:border-ink/20 h-full group">
+                    <span className="font-mono text-xs text-muted uppercase tracking-wider block mb-3 group-hover:text-accent transition-colors">
+                      {cert.period}
+                    </span>
+                    <h4 className="text-sm font-bold mb-2 leading-snug">{cert.title}</h4>
+                    <p className="text-xs text-muted">{cert.institution}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </section>
   );

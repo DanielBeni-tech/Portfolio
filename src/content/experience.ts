@@ -8,6 +8,14 @@ export interface ExperienceItem {
 
 export const experiences: ExperienceItem[] = [
   {
+    id: 'freelance',
+    role: 'Freelance Developer',
+    company: 'Indépendant',
+    period: '2023 — présent',
+    description:
+      "Développement fullstack en indépendant : sites, applications et interfaces, en parallèle de la formation.",
+  },
+  {
     id: 'camtel',
     role: 'Stagiaire — Fullstack & Lead Developer',
     company: 'CAMTEL · Service de la Lutte contre la Fraude · Douala',
@@ -36,12 +44,16 @@ export const education = [
     title: 'Baccalauréat C',
     institution: 'Lycée de Biyem-Assi',
   },
-];
-
-export const certifications = [
   {
-    period: '2021 — 2023',
-    title: 'Développement Web & Robotique',
-    institution: 'TIC Summit',
+    period: '2022 — 2023',
+    title: 'Développement web',
+    institution: 'Formation pratique',
+  },
+  {
+    period: '2021 — 2022',
+    title: 'Robotique et systèmes embarqués',
+    institution: 'Formation pratique',
   },
 ];
+
+export const certifications: { period: string; title: string; institution: string }[] = [];

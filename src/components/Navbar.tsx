@@ -3,13 +3,13 @@
 import { useEffect, useState } from 'react';
 import { profile } from '@/content/profile';
 import { projects } from '@/content/projects';
-import { services } from '@/content/services';
 
 const navItems = [
   { label: 'À propos', href: '#about' },
   { label: 'Projets', href: '#projects', count: projects.length },
-  { label: 'Compétences', href: '#services', count: services.length },
+  { label: 'Compétitions', href: '#competitions' },
   { label: 'Parcours', href: '#experience' },
+  { label: 'Hors code', href: '#life' },
   { label: 'Contact', href: '#contact' },
 ];
 

@@ -38,11 +38,11 @@ export const projects: ProjectItem[] = [
   {
     id: 'syntra',
     title: 'SYNTRA',
-    subtitle: 'Fullstack & Lead Developer · Chat d’entreprise',
+    subtitle: 'Fullstack & Lead Developer · JUIN / Cursor Cameroun',
     description:
-      "Messagerie d'entreprise : canaux, Markdown, code, bot IA de résumé — communication privée entre équipes, hors liaison opérateur classique.",
+      "Messagerie d'entreprise née à JUIN (Cursor Cameroun) : canaux, Markdown, code, bot IA — communication privée hors liaison opérateur classique.",
     longDescription:
-      "SYNTRA (CommHQ) est une app de chat technique : espaces de travail, canaux, messages en temps réel, rendu Markdown/code et résumé IA en trois phrases. Le CV la relie à un canal privé inter-entreprises. Frontend React, backend Python/TypeScript, démo en ligne.",
+      "Construit à JUIN (Cursor Cameroun). SYNTRA (CommHQ) : espaces de travail, canaux, messages en temps réel, Markdown/code et résumé IA. Le CV la relie à un canal privé inter-entreprises. Frontend React, backend Python/TypeScript, démo en ligne.",
     category: 'real',
     tags: ['React', 'TypeScript', 'Python', 'Temps réel'],
     cover: 'cover-blue',
@@ -73,6 +73,26 @@ export const projects: ProjectItem[] = [
       'Lead fullstack, interface conversationnelle',
       'Plus de 1 000 questions/réponses',
       'Recherche sémantique pour les étudiants',
+    ],
+  },
+  {
+    id: 'sango',
+    title: 'SANGO',
+    subtitle: 'Fullstack & Lead Developer · Hackverse',
+    description:
+      "Routage intelligent pour ambulances et pompiers : meilleur chemin sous incertitude, adaptation temps réel, décisions explicables.",
+    longDescription:
+      "Projet Hackverse 2026 (sujet 07). Dans une grande ville, le retard des secours vient surtout de l'incertitude terrain — pas du manque de véhicules. SANGO choisit un itinéraire avec des données imparfaites, s'adapte quand les conditions changent, et explique chaque décision. Repo : Les routes qui sauvent des vies.",
+    category: 'real',
+    tags: ['Python', 'Routage', 'Hackverse'],
+    cover: 'cover-green',
+    image: 'https://images.pexels.com/photos/263402/pexels-photo-263402.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    year: '2026',
+    github: 'https://github.com/DanielBeni-tech/Sango',
+    outcomes: [
+      'Compétition Hackverse',
+      'Décision sous incertitude, pas le plus court chemin classique',
+      'Code public sur GitHub',
     ],
   },
   {
