@@ -9,12 +9,17 @@ export const profile = {
   description:
     "Étudiant ingénieur en télécommunications, lead développeur fullstack (JavaScript et Python), avec un vrai focus frontend, UI/UX et parcours utilisateur.",
   summary: 'Je conçois, connecte et fais fonctionner des systèmes — du parcours utilisateur jusqu’au réseau.',
-  bio: "Étudiant ingénieur en 3e année à SUP'PTIC, je mène les projets en fullstack et lead developer : interface, appflow, API et mise en production. La formation télécom ajoute une lecture réseaux, embarquée/IoT et cybersécurité.",
+  bio: "Étudiant ingénieur en 3e année à SUP'PTIC, freelance depuis 2023. Je mène les projets en fullstack et lead developer : interface, appflow, API et mise en production. La formation télécom ajoute une lecture réseaux, embarquée/IoT et cybersécurité.",
   aboutStory: [
     {
-      year: '2021 — 2023',
-      title: 'Développement web & robotique',
-      text: "Formation TIC Summit : premières bases en développement web et en robotique, déjà orientées pratique.",
+      year: '2021 — 2022',
+      title: 'Robotique et systèmes embarqués',
+      text: "Première formation pratique : robotique et embarqué, déjà les mains dans le matériel.",
+    },
+    {
+      year: '2022 — 2023',
+      title: 'Développement web',
+      text: "Passage au web : bases frontend et produits, puis le freelance en 2023.",
     },
     {
       year: '2024 — présent',
@@ -23,8 +28,8 @@ export const profile = {
     },
     {
       year: '2026',
-      title: 'Stage CAMTEL & AMD AI Academy',
-      text: "Fullstack & lead developer de CARBURFLOW au Service de la Lutte contre la Fraude, puis sélection au AMD AI Academy Challenge (LabLab.ai × AMD).",
+      title: 'Stage CAMTEL, compétitions & AMD',
+      text: "Lead fullstack de CARBURFLOW, compétitions (Orange Business Game, JUIN / Cursor Cameroun, Hackverse), puis AMD AI Academy Challenge.",
     },
   ],
   whatIOffer:
@@ -35,9 +40,9 @@ export const profile = {
     'Réseaux VPN, systèmes embarqués et cybersécurité',
   ],
   stats: [
-    { label: 'Projets choisis', value: '8', project: 'CV · GitHub · produits livrés' },
+    { label: 'Projets choisis', value: '9', project: 'CV · GitHub · compétitions' },
     { label: 'Année de formation', value: '3e', project: "SUP'PTIC · Informatique & Réseaux" },
-    { label: 'Challenge en cours', value: 'AMD', project: 'AI Academy · LabLab.ai × AMD' },
+    { label: 'Échecs', value: '1600', project: 'Elo · plus football, scrabble, jeux' },
     { label: 'Langues', value: 'FR · B1', project: 'Français · Anglais' },
   ],
   skills: [
