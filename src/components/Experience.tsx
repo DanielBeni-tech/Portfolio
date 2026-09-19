@@ -20,9 +20,9 @@ export function Experience() {
 
         <Reveal delay={80}>
           <p className="text-2xl md:text-4xl font-display font-bold max-w-3xl mb-10 md:mb-16 leading-tight">
-            Du premier produit
+            Lead fullstack à CAMTEL,
             <br />
-            <span className="text-accent">aux systèmes IA en production.</span>
+            <span className="text-accent">puis le challenge AMD.</span>
           </p>
         </Reveal>
 
@@ -62,7 +62,7 @@ export function Experience() {
               Formation
             </h3>
           </Reveal>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {education.map((edu, i) => (
               <Reveal key={edu.title} delay={i * 80}>
                 <div className="border border-line rounded-2xl p-6 bg-paper card-lift hover:border-ink/20 h-full group">

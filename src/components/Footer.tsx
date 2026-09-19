@@ -24,6 +24,21 @@ export function Footer() {
             </div>
 
             <div className="flex flex-wrap gap-4">
+              <a
+                href={profile.cvUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="font-mono text-xs text-muted hover:text-ink transition-colors uppercase tracking-wider"
+              >
+                CV ↗
+              </a>
+              <a
+                href={profile.cvUrl}
+                download="CV-Daniel-Beni.pdf"
+                className="font-mono text-xs text-muted hover:text-ink transition-colors uppercase tracking-wider"
+              >
+                Télécharger
+              </a>
               {profile.socials.map((social) => (
                 <a
                   key={social.label}
@@ -49,14 +64,14 @@ export function Footer() {
             <div className="flex gap-8 animate-marquee whitespace-nowrap">
               {[...Array(2)].map((_, dup) => (
                 <div key={dup} className="flex gap-8 shrink-0">
-                  <span className="font-display text-3xl md:text-5xl font-bold text-ink">TÉLÉCOM</span>
-                  <span className="font-display text-3xl md:text-5xl font-bold text-outline">IA &amp; RÉSEAUX</span>
-                  <span className="font-display text-3xl md:text-5xl font-bold text-ink">EMBARQUÉ</span>
-                  <span className="font-display text-3xl md:text-5xl font-bold text-outline">YAOUNDÉ</span>
-                  <span className="font-display text-3xl md:text-5xl font-bold text-ink">TÉLÉCOM</span>
-                  <span className="font-display text-3xl md:text-5xl font-bold text-outline">IA &amp; RÉSEAUX</span>
-                  <span className="font-display text-3xl md:text-5xl font-bold text-ink">EMBARQUÉ</span>
-                  <span className="font-display text-3xl md:text-5xl font-bold text-outline">YAOUNDÉ</span>
+                  <span className="font-display text-3xl md:text-5xl font-bold text-ink">FULLSTACK</span>
+                  <span className="font-display text-3xl md:text-5xl font-bold text-outline">LEAD DEV</span>
+                  <span className="font-display text-3xl md:text-5xl font-bold text-ink">UX / UI</span>
+                  <span className="font-display text-3xl md:text-5xl font-bold text-outline">IA ENGINEER</span>
+                  <span className="font-display text-3xl md:text-5xl font-bold text-ink">FULLSTACK</span>
+                  <span className="font-display text-3xl md:text-5xl font-bold text-outline">LEAD DEV</span>
+                  <span className="font-display text-3xl md:text-5xl font-bold text-ink">UX / UI</span>
+                  <span className="font-display text-3xl md:text-5xl font-bold text-outline">IA ENGINEER</span>
                 </div>
               ))}
             </div>

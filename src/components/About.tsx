@@ -1,9 +1,45 @@
 'use client';
 
+import { useRef } from 'react';
 import { profile } from '@/content/profile';
 import { Reveal } from '@/components/Reveal';
+import { gsap, registerGsap, useGSAP } from '@/lib/gsap';
+
+registerGsap();
 
 export function About() {
+  const photosRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(
+    () => {
+      const photos = photosRef.current?.querySelectorAll('.about-photo');
+      if (!photos?.length) return;
+
+      const mm = gsap.matchMedia();
+      mm.add('(prefers-reduced-motion: no-preference)', () => {
+        photos.forEach((photo, i) => {
+          gsap.fromTo(
+            photo,
+            { y: i === 0 ? 40 : 24 },
+            {
+              y: i === 0 ? -24 : -12,
+              ease: 'none',
+              scrollTrigger: {
+                trigger: photosRef.current,
+                start: 'top bottom',
+                end: 'bottom top',
+                scrub: true,
+              },
+            }
+          );
+        });
+      });
+
+      return () => mm.revert();
+    },
+    { scope: photosRef }
+  );
+
   return (
     <section id="about" className="px-3 py-16 md:px-6 md:py-28">
       <div className="mx-auto max-w-[1440px]">
@@ -23,13 +59,13 @@ export function About() {
           {/* Photos */}
           <div className="lg:col-span-5 lg:col-start-1">
             <Reveal>
-              <div className="relative">
+              <div ref={photosRef} className="relative">
                 <div className="img-zoom rounded-2xl overflow-hidden border border-line mb-4 aspect-[4/5] frame">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src="/photos/daniel-portrait.jpeg"
-                    alt="Daniel Beni Mpodoul Wefisan"
-                    className="w-full h-full object-cover"
+                    alt="Daniel Beni Mpodol Welisan"
+                    className="about-photo w-full h-full object-cover"
                     loading="lazy"
                   />
                 </div>
@@ -38,7 +74,7 @@ export function About() {
                   <img
                     src="/photos/daniel-desk.jpeg"
                     alt="Daniel Beni au travail"
-                    className="w-full h-full object-cover"
+                    className="about-photo w-full h-full object-cover"
                     loading="lazy"
                   />
                 </div>
@@ -143,7 +179,7 @@ export function About() {
             {/* Current focus */}
             <Reveal delay={680}>
               <div className="border-t border-line pt-6 mt-2">
-                <div className="font-mono text-[10px] text-muted tracking-widest uppercase mb-4">
+                <div className="font-mono text-xs text-muted tracking-widest uppercase mb-4">
                   Focus actuel
                 </div>
                 <ul className="space-y-2">
@@ -157,6 +193,27 @@ export function About() {
                     </li>
                   ))}
                 </ul>
+                <div className="mt-6 flex flex-wrap gap-3">
+                  <a
+                    href={profile.cvUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="btn-dark text-sm"
+                    data-cursor="CV"
+                  >
+                    Consulter le CV
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} className="size-4">
+                      <path d="M7 17 17 7M8 7h9v9" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </a>
+                  <a
+                    href={profile.cvUrl}
+                    download="CV-Daniel-Beni.pdf"
+                    className="pill text-sm"
+                  >
+                    Télécharger le PDF
+                  </a>
+                </div>
               </div>
             </Reveal>
           </div>

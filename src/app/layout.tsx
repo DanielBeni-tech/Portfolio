@@ -25,11 +25,13 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Daniel Beni Mpodoul Wefisan — Télécommunications · Informatique & Réseaux',
-  description: 'Étudiant ingénieur en télécommunications, informatique et réseaux. Je construis des logiciels, des systèmes embarqués et des solutions IA.',
+  title: 'Daniel Beni Mpodol Welisan — Fullstack & Lead Developer',
+  description:
+    "Daniel Beni Mpodol Welisan — lead développeur fullstack (JavaScript et Python), frontend, UI/UX et IA. Portfolio et CV.",
   openGraph: {
-    title: 'Daniel Beni Mpodoul Wefisan — Télécommunications · Informatique & Réseaux',
-    description: 'Étudiant ingénieur en télécommunications, informatique et réseaux. Je construis des logiciels, des systèmes embarqués et des solutions IA.',
+    title: 'Daniel Beni Mpodol Welisan — Fullstack & Lead Developer',
+    description:
+      "Lead fullstack JS/Python, frontend & UX/UI. CARBURFLOW, SYNTRA, SUPONEAI, SONE, Club Info, Mabbtek.",
     type: 'website',
   },
 };

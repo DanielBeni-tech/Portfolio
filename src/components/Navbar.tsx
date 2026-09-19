@@ -2,11 +2,13 @@
 
 import { useEffect, useState } from 'react';
 import { profile } from '@/content/profile';
+import { projects } from '@/content/projects';
+import { services } from '@/content/services';
 
 const navItems = [
   { label: 'À propos', href: '#about' },
-  { label: 'Projets', href: '#projects', count: 3 },
-  { label: 'Compétences', href: '#services', count: 4 },
+  { label: 'Projets', href: '#projects', count: projects.length },
+  { label: 'Compétences', href: '#services', count: services.length },
   { label: 'Parcours', href: '#experience' },
   { label: 'Contact', href: '#contact' },
 ];
@@ -48,13 +50,24 @@ export function Navbar() {
             ))}
           </div>
 
-          <a
-            href={`mailto:${profile.email}`}
-            className="btn-dark text-xs md:text-sm hidden md:inline-flex"
-            data-cursor="Écrire"
-          >
-            Parlons-en →
-          </a>
+          <div className="hidden md:flex items-center gap-3">
+            <a
+              href={profile.cvUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="pill text-xs"
+              data-cursor="CV"
+            >
+              CV
+            </a>
+            <a
+              href={`mailto:${profile.email}`}
+              className="btn-dark text-xs md:text-sm"
+              data-cursor="Écrire"
+            >
+              Parlons-en →
+            </a>
+          </div>
 
           <button
             className="md:hidden font-mono text-sm font-semibold"
@@ -85,8 +98,17 @@ export function Navbar() {
             </a>
           ))}
           <a
+            href={profile.cvUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="pill mt-2"
+            onClick={() => setMenuOpen(false)}
+          >
+            Voir le CV
+          </a>
+          <a
             href={`mailto:${profile.email}`}
-            className="btn-dark mt-4"
+            className="btn-dark mt-2"
             onClick={() => setMenuOpen(false)}
           >
             Parlons-en →

@@ -9,18 +9,26 @@ export interface ExperienceItem {
 export const experiences: ExperienceItem[] = [
   {
     id: 'camtel',
-    role: 'Stagiaire — Développement full-stack',
-    company: 'CAMTEL · Service de la Lutte contre la Fraude',
+    role: 'Stagiaire — Fullstack & Lead Developer',
+    company: 'CAMTEL · Service de la Lutte contre la Fraude · Douala',
     period: 'Juillet — Septembre 2026',
     description:
-      "Conception et développement de CARBURFLOW pour la Business Unit Fixe et le Service de la Lutte contre la Fraude : supervision des niveaux et consommations de carburant, avec détection d'anomalies.",
+      "Lead fullstack de CARBURFLOW : frontend, UX/UI, API Django et dashboard, pour le Service de la Lutte contre la Fraude (Délégation Régionale du Littoral, Business Unit Fixe, Bepanda).",
+  },
+  {
+    id: 'amd',
+    role: 'Participant — AMD AI Academy Challenge',
+    company: 'LabLab.ai × AMD',
+    period: 'Septembre — Décembre 2026',
+    description:
+      "Sélectionné pour un challenge individuel de trois mois sur l'IA accélérée par GPU : LLMs, RAG, agents IA, MCP, IA multimodale, web agents, systèmes multi-agents et fine-tuning.",
   },
 ];
 
 export const education = [
   {
     period: '2024 — présent · 3e année',
-    title: "Ingénieur des Travaux en Télécommunications — Informatique & Réseaux",
+    title: 'Ingénieur des Travaux de Télécommunication — Informatique & Réseaux',
     institution: "SUP'PTIC · Yaoundé",
   },
   {
@@ -28,17 +36,12 @@ export const education = [
     title: 'Baccalauréat C',
     institution: 'Lycée de Biyem-Assi',
   },
-  {
-    period: '2021 — 2023',
-    title: 'Formation en développement web et robotique',
-    institution: 'TIC Summit · Attestation en cours d’obtention',
-  },
 ];
 
 export const certifications = [
   {
-    period: 'Octobre 2025 — Avril 2026 · 400 h',
-    title: 'Programmeur Électronique & Systèmes Embarqués',
-    institution: 'OIF / D-CLIC · CNFPP',
+    period: '2021 — 2023',
+    title: 'Développement Web & Robotique',
+    institution: 'TIC Summit',
   },
 ];

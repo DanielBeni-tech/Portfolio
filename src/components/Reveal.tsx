@@ -1,6 +1,9 @@
 'use client';
 
-import { useEffect, useRef, useState, type ReactNode } from 'react';
+import { useRef, type ReactNode } from 'react';
+import { gsap, registerGsap, useGSAP } from '@/lib/gsap';
+
+registerGsap();
 
 interface RevealProps {
   children: ReactNode;
@@ -10,32 +13,51 @@ interface RevealProps {
 
 export function Reveal({ children, delay = 0, className = '' }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
 
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
+  useGSAP(
+    () => {
+      const el = ref.current;
+      if (!el) return;
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          observer.disconnect();
+      const mm = gsap.matchMedia();
+      mm.add(
+        {
+          reduce: '(prefers-reduced-motion: reduce)',
+          motion: '(prefers-reduced-motion: no-preference)',
+        },
+        (context) => {
+          const reduce = context.conditions?.reduce;
+          if (reduce) {
+            gsap.set(el, { autoAlpha: 1, y: 0 });
+            return;
+          }
+
+          gsap.fromTo(
+            el,
+            { autoAlpha: 0, y: 36 },
+            {
+              autoAlpha: 1,
+              y: 0,
+              duration: 0.9,
+              delay: delay / 1000,
+              ease: 'power3.out',
+              scrollTrigger: {
+                trigger: el,
+                start: 'top 90%',
+                once: true,
+              },
+            }
+          );
         }
-      },
-      { threshold: 0.12, rootMargin: '0px 0px -60px 0px' }
-    );
+      );
 
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
+      return () => mm.revert();
+    },
+    { scope: ref, dependencies: [delay] }
+  );
 
   return (
-    <div
-      ref={ref}
-      className={`reveal ${visible ? 'visible' : ''} ${className}`}
-      style={{ transitionDelay: `${delay}ms` }}
-    >
+    <div ref={ref} className={className}>
       {children}
     </div>
   );

@@ -1,22 +1,58 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { projects, type ProjectItem } from '@/content/projects';
 import { Reveal } from '@/components/Reveal';
+import { gsap, registerGsap, useGSAP } from '@/lib/gsap';
+
+registerGsap();
 
 const filters = [
   { label: 'Tous', value: 'all' },
-  { label: 'Projets de stage', value: 'real' },
+  { label: 'Produits livrés', value: 'real' },
+  { label: 'GitHub', value: 'github' },
 ];
 
-function ProjectCard({ project, index }: { project: ProjectItem; index: number }) {
+function ProjectCard({ project }: { project: ProjectItem }) {
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(
+    (_, contextSafe) => {
+      const card = cardRef.current;
+      if (!card || !contextSafe) return;
+      const image = card.querySelector('img');
+      if (!image) return;
+
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduce) return;
+
+      const onEnter = contextSafe(() => {
+        gsap.to(card, { y: -8, duration: 0.45, ease: 'power3.out' });
+        gsap.to(image, { scale: 1.08, duration: 0.7, ease: 'power3.out' });
+      });
+      const onLeave = contextSafe(() => {
+        gsap.to(card, { y: 0, duration: 0.45, ease: 'power3.out' });
+        gsap.to(image, { scale: 1, duration: 0.7, ease: 'power3.out' });
+      });
+
+      card.addEventListener('mouseenter', onEnter);
+      card.addEventListener('mouseleave', onLeave);
+      return () => {
+        card.removeEventListener('mouseenter', onEnter);
+        card.removeEventListener('mouseleave', onLeave);
+      };
+    },
+    { scope: cardRef }
+  );
+
   return (
     <div
-      className="group border border-line rounded-2xl overflow-hidden bg-paper card-lift hover:border-ink/20 h-full flex flex-col"
+      ref={cardRef}
+      className="group border border-line rounded-2xl overflow-hidden bg-paper hover:border-ink/20 h-full flex flex-col"
       data-cursor="Voir"
     >
       {/* Cover with real image */}
-      <div className="aspect-[16/10] relative overflow-hidden img-zoom">
+      <div className="aspect-[16/10] relative overflow-hidden">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={project.image}
@@ -27,7 +63,7 @@ function ProjectCard({ project, index }: { project: ProjectItem; index: number }
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80" />
         <div className="absolute top-3 left-3 z-10">
           <span className="bg-white/90 backdrop-blur-sm text-ink text-[10px] font-mono uppercase tracking-wider px-2 py-1 rounded-full">
-            {project.category === 'real' ? 'Projet réel' : 'Exploration'}
+            {project.category === 'real' ? 'Produit livré' : 'GitHub'}
           </span>
         </div>
         <div className="absolute top-3 right-3 z-10">
@@ -124,7 +160,7 @@ export function Projects() {
               /Projets choisis
             </h2>
             <span className="font-mono text-xs text-muted">
-              {projects.length} projets · CV 2026
+              {projects.length} projets · CV + GitHub
             </span>
           </div>
         </Reveal>
@@ -132,9 +168,9 @@ export function Projects() {
         {/* Intro text */}
         <Reveal delay={80}>
           <p className="text-2xl md:text-4xl font-display font-bold max-w-3xl mb-10 md:mb-16 leading-tight">
-            Trois projets présentés.
+            Huit projets choisis.
             <br />
-            <span className="text-accent">Du besoin réel à la solution déployée.</span>
+            <span className="text-accent">Lead fullstack sur chacun d&apos;eux.</span>
           </p>
         </Reveal>
 
@@ -161,7 +197,7 @@ export function Projects() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {filtered.map((project, i) => (
             <Reveal key={project.id} delay={i * 60}>
-              <ProjectCard project={project} index={i} />
+              <ProjectCard project={project} />
             </Reveal>
           ))}
         </div>

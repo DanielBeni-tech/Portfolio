@@ -49,5 +49,6 @@ export interface Profile {
   email: string;
   github: string;
   linkedin?: string;
+  cvUrl?: string;
   currentFocus: string[];
 }
