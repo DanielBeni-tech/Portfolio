@@ -14,11 +14,11 @@ export const communityActivities: CommunityItem[] = [
   {
     id: 'supptic',
     organization: "SUP'PTIC Computer Club",
-    role: 'Président (2026)',
-    image: '/community/president-2026.jpg',
+    role: 'Président — élu 2026',
+    image: '/photos/daniel-event.webp',
     description:
-      "Une communauté technique à SUP'PTIC qui rassemble les étudiants autour du logiciel, de l'IA et de la construction pratique.",
-    period: '2023 — Présent',
+      "Club informatique de l'École nationale supérieure des postes et télécommunications (SUP'PTIC). Membre depuis 2023, président depuis 2026 : logiciel, IA et construction pratique.",
+    period: '2023 — Présent · président depuis 2026',
     activities: [
       'Ateliers Python, IA et développement web',
       'Hackathons et sprints de projets',
@@ -30,10 +30,10 @@ export const communityActivities: CommunityItem[] = [
     id: 'claude-cameroon',
     organization: 'Claude Cameroon',
     role: 'Fondateur',
-    image: '/community/collab-club.jpg',
+    image: '/community/collab-club.webp',
     description:
-      "Une communauté IA locale explorant Claude et les outils LLM — rendre l'éducation IA accessible au Cameroun.",
-    period: '2024 — Présent',
+      "Communauté IA née début 2026 : explorer Claude et les outils LLM, et rendre l'éducation IA accessible au Cameroun.",
+    period: 'Début 2026 — Présent',
     activities: [
       'Sessions de littératie IA',
       'Ateliers de prompt engineering',
@@ -46,10 +46,10 @@ export const communityActivities: CommunityItem[] = [
 const communityEn: CommunityItem[] = [
   {
     ...communityActivities[0],
-    role: 'President (2026)',
+    role: 'President — elected 2026',
     description:
-      "A technical community at SUP'PTIC that brings students together around software, AI and building in practice.",
-    period: '2023 — Present',
+      "Computer club of the National Advanced School of Posts and Telecommunications (SUP'PTIC). Member since 2023, president since 2026: software, AI and building in practice.",
+    period: '2023 — Present · president since 2026',
     activities: [
       'Python, AI and web development workshops',
       'Hackathons and project sprints',
@@ -61,8 +61,8 @@ const communityEn: CommunityItem[] = [
     ...communityActivities[1],
     role: 'Founder',
     description:
-      'A local AI community exploring Claude and LLM tools — making AI education accessible in Cameroon.',
-    period: '2024 — Present',
+      'AI community born in early 2026: exploring Claude and LLM tools, and making AI education accessible in Cameroon.',
+    period: 'Early 2026 — Present',
     activities: [
       'AI literacy sessions',
       'Prompt-engineering workshops',

@@ -81,9 +81,11 @@ export function Hero() {
         <div className="absolute inset-0 z-0 overflow-hidden">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/photos/daniel-portrait.jpeg"
+            src="/photos/daniel-portrait.webp"
             alt="Daniel Beni Mpodol Welisan"
             className="hero-photo h-full w-full object-cover object-[50%_25%] scale-105"
+            fetchPriority="high"
+            decoding="async"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-white/85 via-white/20 to-white" />
           <div className="absolute inset-0 bg-gradient-to-r from-white/50 via-transparent to-white/50" />
@@ -114,7 +116,7 @@ export function Hero() {
               </defs>
               <text className="fill-ink font-mono text-xs font-bold uppercase tracking-wider">
                 <textPath href="#hero-circle" textLength="220" lengthAdjust="spacing">
-                  FULLSTACK · LEAD · UX · IA ·
+                  TÉLÉCOM · FULLSTACK · UX · IA ·
                 </textPath>
               </text>
             </svg>

@@ -1,6 +1,6 @@
 'use client';
 
-import { getExperiences, getEducation, certifications } from '@/content/experience';
+import { getExperiences, getEducation, getCertifications } from '@/content/experience';
 import { Reveal } from '@/components/Reveal';
 import { getLocale, getUi, useLocale } from '@/lib/locale';
 import { levelEn } from '@/content/en';
@@ -11,6 +11,7 @@ export function Experience() {
   const locale = getLocale();
   const experiences = getExperiences();
   const education = getEducation();
+  const certifications = getCertifications();
   const statusLabel = (status?: string) =>
     status ? (locale === 'en' ? levelEn[status] ?? status : status) : undefined;
 

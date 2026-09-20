@@ -2,9 +2,9 @@ export const profileEn = {
   name: 'Daniel Beni Mpodol Welisan',
   firstName: 'DANIEL BENI',
   lastName: 'MPODOL WELISAN',
-  alias: 'Engineering student · Fullstack & Lead Developer · UX/UI · AI',
-  title: 'Fullstack & Lead Developer · Frontend & UX/UI · AI Engineer',
-  fullTitle: 'Telecommunications · Fullstack · Frontend & UX/UI · AI',
+  alias: 'Telecom engineering student · Fullstack & Lead Developer · UX/UI · AI',
+  title: 'Telecom engineering student · Fullstack & Lead Developer · Frontend & UX/UI · AI Engineer',
+  fullTitle: 'Telecom engineering student · Fullstack · Frontend & UX/UI · AI',
   location: 'Yaoundé / Cameroon',
   description:
     'Telecommunications engineering student, fullstack lead (JavaScript and Python), with a real focus on frontend, UI/UX and user journeys.',
@@ -14,39 +14,48 @@ export const profileEn = {
     {
       year: '2022 — 2023',
       title: 'Web development',
-      text: 'Moved to the web: frontend basics and products, then freelance in 2023.',
-      image: '/community/clubinfo.png',
+      text: 'Moved to the web: frontend basics and first products.',
+      image: '/photos/daniel-desk.webp',
+    },
+    {
+      year: '2023 — present',
+      title: 'Freelance',
+      text: 'First clients right after the web training: sites, apps and interfaces, independently and alongside studies.',
+      image: '/illustrations/freelance.webp',
     },
     {
       year: '2023 — 2025',
       title: 'Robotics and embedded systems',
       text: 'First hands-on training: robotics and embedded, already in the hardware.',
-      image: '/photos/electronique.jpg',
+      image: '/photos/electronique.webp',
     },
     {
       year: '2024 — present',
       title: 'Telecommunications engineering',
       text: "At SUP'PTIC Yaoundé, 3rd year — Telecommunications Works Engineer, Computing & Networks.",
-      image: '/photos/daniel-portrait.jpeg',
+      image: '/photos/daniel-supptic.webp',
     },
     {
       year: '2026',
       title: 'CAMTEL internship, competitions & AMD',
       text: 'Fullstack lead on CARBURFLOW, competitions (Orange Business Game, JUIN / Cursor Cameroon, Hackverse), then AMD AI Academy Challenge.',
-      image: '/projects/carburflow.jpeg',
+      image: '/projects/carburflow-alerts.webp',
+      image2: '/photos/amd-ai-academy.webp',
     },
   ],
   whatIOffer:
     'I take fullstack lead on the products I ship: frontend, UX/UI, backend and deploy. The AMD challenge extends this toward LLMs, RAG and AI agents, with a network and security culture from telecom.',
   currentFocus: [
     'Fullstack lead — frontend, UX/UI and backend',
+    'Hugging Face LLM Course',
     'AMD AI Academy Challenge — LLMs, RAG, agents',
-    'VPN networks, embedded systems and cybersecurity',
+    'Claude Cameroon — community born in early 2026',
+    "President of SUP'PTIC Computer Club (elected 2026)",
   ],
   stats: [
-    { label: 'Selected projects', value: '9', project: 'CV · GitHub · competitions', image: '/projects/carburflow.jpeg' },
-    { label: 'Year of study', value: '3rd', project: "SUP'PTIC · Computing & Networks", image: '/community/president-2026.jpg' },
-    { label: 'Chess', value: '1600', project: 'Elo · plus football, scrabble, games', image: '/photos/chess.png' },
+    { label: 'Selected projects', value: '9', project: 'CV · GitHub · competitions', image: '/illustrations/projects-grid.webp' },
+    { label: 'Year of study', value: '3rd', project: "SUP'PTIC · Computing & Networks" },
+    { label: 'Chess', value: '1600', project: 'Elo · plus football, scrabble, games', icon: '/photos/chess.webp' },
     { label: 'Languages', value: 'FR · B1', project: 'French · English' },
   ],
   skills: [
@@ -192,6 +201,11 @@ export const uiEn = {
   lifeBody: 'The same taste for play: calculate, run, place a word, or stay on a screen one evening.',
   seeWork: 'See',
   write: 'Write',
+  close: 'Close',
+  outcomes: 'Outcomes',
+  stack: 'Stack',
+  code: 'Code',
+  openProject: 'Open project',
 };
 
 export const uiFr = {
@@ -262,6 +276,11 @@ export const uiFr = {
   lifeBody: 'Le même goût du jeu : calculer, courir, poser un mot, ou rester un soir sur un écran.',
   seeWork: 'Voir',
   write: 'Écrire',
+  close: 'Fermer',
+  outcomes: 'Résultats',
+  stack: 'Stack',
+  code: 'Code',
+  openProject: 'Ouvrir le projet',
 };
 
 export const levelEn: Record<string, string> = {
