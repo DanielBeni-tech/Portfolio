@@ -20,8 +20,14 @@ const profileFr = {
     {
       year: '2022 — 2023',
       title: 'Développement web',
-      text: "Passage au web : bases frontend et produits, puis le freelance en 2023.",
-      image: '/community/clubinfo.png',
+      text: "Passage au web : bases frontend et premiers produits.",
+      image: '/photos/daniel-desk.jpeg',
+    },
+    {
+      year: '2023 — présent',
+      title: 'Freelance',
+      text: "Premiers clients juste après la formation web : sites, applications et interfaces, en indépendant et en parallèle des études.",
+      image: '/illustrations/freelance.png',
     },
     {
       year: '2023 — 2025',
@@ -33,13 +39,13 @@ const profileFr = {
       year: '2024 — présent',
       title: 'Ingénierie des télécommunications',
       text: "À SUP'PTIC Yaoundé, 3e année — Ingénieur des Travaux de Télécommunication, Informatique & Réseaux.",
-      image: '/photos/daniel-portrait.jpeg',
+      image: '/photos/daniel-supptic.jpg',
     },
     {
       year: '2026',
       title: 'Stage CAMTEL, compétitions & AMD',
       text: "Lead fullstack de CARBURFLOW, compétitions (Orange Business Game, JUIN / Cursor Cameroun, Hackverse), puis AMD AI Academy Challenge.",
-      image: '/projects/carburflow.jpeg',
+      image: '/projects/carburflow-alerts.jpeg',
     },
   ],
   whatIOffer:
@@ -48,11 +54,12 @@ const profileFr = {
     'Lead fullstack — frontend, UX/UI et backend',
     'AMD AI Academy Challenge — LLMs, RAG, agents',
     'Réseaux VPN, systèmes embarqués et cybersécurité',
+    'Organisation du premier événement Claude Cameroun',
   ],
   stats: [
-    { label: 'Projets choisis', value: '9', project: 'CV · GitHub · compétitions', image: '/projects/carburflow.jpeg' },
-    { label: 'Année de formation', value: '3e', project: "SUP'PTIC · Informatique & Réseaux", image: '/community/president-2026.jpg' },
-    { label: 'Échecs', value: '1600', project: 'Elo · plus football, scrabble, jeux', image: '/photos/chess.png' },
+    { label: 'Projets choisis', value: '9', project: 'CV · GitHub · compétitions', image: '/illustrations/projects-grid.png' },
+    { label: 'Année de formation', value: '3e', project: "SUP'PTIC · Informatique & Réseaux" },
+    { label: 'Échecs', value: '1600', project: 'Elo · plus football, scrabble, jeux', icon: '/photos/chess.png' },
     { label: 'Langues', value: 'FR · B1', project: 'Français · Anglais' },
   ],
   skills: [

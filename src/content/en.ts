@@ -14,8 +14,14 @@ export const profileEn = {
     {
       year: '2022 — 2023',
       title: 'Web development',
-      text: 'Moved to the web: frontend basics and products, then freelance in 2023.',
-      image: '/community/clubinfo.png',
+      text: 'Moved to the web: frontend basics and first products.',
+      image: '/photos/daniel-desk.jpeg',
+    },
+    {
+      year: '2023 — present',
+      title: 'Freelance',
+      text: 'First clients right after the web training: sites, apps and interfaces, independently and alongside studies.',
+      image: '/illustrations/freelance.png',
     },
     {
       year: '2023 — 2025',
@@ -27,13 +33,13 @@ export const profileEn = {
       year: '2024 — present',
       title: 'Telecommunications engineering',
       text: "At SUP'PTIC Yaoundé, 3rd year — Telecommunications Works Engineer, Computing & Networks.",
-      image: '/photos/daniel-portrait.jpeg',
+      image: '/photos/daniel-supptic.jpg',
     },
     {
       year: '2026',
       title: 'CAMTEL internship, competitions & AMD',
       text: 'Fullstack lead on CARBURFLOW, competitions (Orange Business Game, JUIN / Cursor Cameroon, Hackverse), then AMD AI Academy Challenge.',
-      image: '/projects/carburflow.jpeg',
+      image: '/projects/carburflow-alerts.jpeg',
     },
   ],
   whatIOffer:
@@ -42,11 +48,12 @@ export const profileEn = {
     'Fullstack lead — frontend, UX/UI and backend',
     'AMD AI Academy Challenge — LLMs, RAG, agents',
     'VPN networks, embedded systems and cybersecurity',
+    'Organising the first Claude Cameroon event',
   ],
   stats: [
-    { label: 'Selected projects', value: '9', project: 'CV · GitHub · competitions', image: '/projects/carburflow.jpeg' },
-    { label: 'Year of study', value: '3rd', project: "SUP'PTIC · Computing & Networks", image: '/community/president-2026.jpg' },
-    { label: 'Chess', value: '1600', project: 'Elo · plus football, scrabble, games', image: '/photos/chess.png' },
+    { label: 'Selected projects', value: '9', project: 'CV · GitHub · competitions', image: '/illustrations/projects-grid.png' },
+    { label: 'Year of study', value: '3rd', project: "SUP'PTIC · Computing & Networks" },
+    { label: 'Chess', value: '1600', project: 'Elo · plus football, scrabble, games', icon: '/photos/chess.png' },
     { label: 'Languages', value: 'FR · B1', project: 'French · English' },
   ],
   skills: [

@@ -8,18 +8,6 @@ import { gsap, registerGsap, useGSAP } from '@/lib/gsap';
 
 registerGsap();
 
-const stacks = [
-  { name: 'Python', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
-  { name: 'JavaScript', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
-  { name: 'React', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
-  { name: 'Node.js', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg' },
-  { name: 'PostgreSQL', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg' },
-  { name: 'Docker', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg' },
-  { name: 'Figma', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg' },
-  { name: 'C++', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg' },
-  { name: 'Arduino', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/arduino/arduino-original.svg' },
-];
-
 export function About() {
   useLocale();
   const ui = getUi();
@@ -49,15 +37,6 @@ export function About() {
           stagger: 0.12,
           scrollTrigger: { trigger: '.about-soft', start: 'top 80%' },
         });
-
-        gsap.from('.stack-tile', {
-          y: 18,
-          filter: 'blur(6px)',
-          stagger: { each: 0.04, from: 'start' },
-          duration: 0.65,
-          ease: 'power3.out',
-          scrollTrigger: { trigger: '.about-stacks', start: 'top 82%' },
-        });
       });
 
       return () => mm.revert();
@@ -81,7 +60,7 @@ export function About() {
               <div className="img-zoom frame aspect-[4/5] overflow-hidden rounded-2xl border border-line">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="/photos/daniel-portrait.jpeg"
+                  src="/photos/daniel-2025.jpeg"
                   alt="Daniel Beni Mpodol Welisan"
                   className="h-full w-full object-cover"
                   loading="lazy"
@@ -141,6 +120,10 @@ export function About() {
                 // eslint-disable-next-line @next/next/no-img-element
                 <img src={stat.image} alt="" className="absolute inset-0 h-full w-full object-cover opacity-45" loading="lazy" />
               ) : null}
+              {stat.icon ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img src={stat.icon} alt="" className="absolute right-5 top-5 size-14 object-contain opacity-80" loading="lazy" />
+              ) : null}
               <div className="relative flex h-full flex-col justify-end p-5">
                 <p className="font-display text-5xl font-bold">{stat.value}</p>
                 <p className="mt-2 text-sm text-white/85">{stat.label}</p>
@@ -157,7 +140,7 @@ export function About() {
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             <div className="soft-panel relative min-h-[280px] overflow-hidden rounded-2xl border border-line">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/community/president-2026.jpg" alt="" className="absolute inset-0 h-full w-full object-cover" loading="lazy" />
+              <img src="/photos/daniel-event.jpeg" alt="" className="absolute inset-0 h-full w-full object-cover object-top" loading="lazy" />
               <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/20 to-transparent" />
               <div className="relative flex h-full flex-col justify-end p-6 text-white">
                 <p className="font-display text-2xl font-bold">{profile.softSkills[3]}</p>
@@ -166,31 +149,13 @@ export function About() {
             </div>
             <div className="soft-panel relative min-h-[280px] overflow-hidden rounded-2xl border border-line">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/community/collab-club.jpg" alt="" className="absolute inset-0 h-full w-full object-cover" loading="lazy" />
+              <img src="/illustrations/teamwork.png" alt="" className="absolute inset-0 h-full w-full object-cover" loading="lazy" />
               <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/20 to-transparent" />
               <div className="relative flex h-full flex-col justify-end p-6 text-white">
                 <p className="font-display text-2xl font-bold">{profile.softSkills[1]}</p>
                 <p className="mt-1 font-mono text-xs uppercase tracking-[0.16em] text-white/70">{profile.softSkills[2]}</p>
               </div>
             </div>
-          </div>
-        </div>
-
-        <div className="about-stacks mb-16 md:mb-24">
-          <Reveal>
-            <h3 className="mb-6 font-display text-3xl font-bold md:text-5xl">{ui.stacks}</h3>
-          </Reveal>
-          <div className="grid grid-cols-3 gap-3 sm:grid-cols-3 md:grid-cols-9">
-            {stacks.map((tech) => (
-              <div
-                key={tech.name}
-                className="stack-tile flex flex-col items-center gap-3 rounded-2xl border border-line bg-paper px-3 py-5"
-              >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={tech.src} alt="" className="size-10" />
-                <span className="text-center font-mono text-xs text-ink/80">{tech.name}</span>
-              </div>
-            ))}
           </div>
         </div>
 
