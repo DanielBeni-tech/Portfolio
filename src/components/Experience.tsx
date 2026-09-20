@@ -1,28 +1,38 @@
 'use client';
 
-import { experiences, education, certifications } from '@/content/experience';
+import { getExperiences, getEducation, certifications } from '@/content/experience';
 import { Reveal } from '@/components/Reveal';
+import { getLocale, getUi, useLocale } from '@/lib/locale';
+import { levelEn } from '@/content/en';
 
 export function Experience() {
+  useLocale();
+  const ui = getUi();
+  const locale = getLocale();
+  const experiences = getExperiences();
+  const education = getEducation();
+  const statusLabel = (status?: string) =>
+    status ? (locale === 'en' ? levelEn[status] ?? status : status) : undefined;
+
   return (
     <section id="experience" className="px-3 py-16 md:px-6 md:py-28">
       <div className="mx-auto max-w-[1440px]">
         <Reveal>
           <div className="flex items-baseline justify-between mb-10 md:mb-16">
             <h2 className="font-mono text-sm uppercase tracking-[0.2em] text-muted">
-              /Parcours
+              /{ui.path}
             </h2>
             <span className="font-mono text-xs text-muted hidden md:block">
-              Expérience · Formation · Certifications
+              {ui.pathMeta}
             </span>
           </div>
         </Reveal>
 
         <Reveal delay={80}>
           <p className="text-2xl md:text-4xl font-display font-bold max-w-3xl mb-10 md:mb-16 leading-tight">
-            Freelance depuis 2023,
+            {ui.freelanceSince}
             <br />
-            <span className="text-accent">stage CAMTEL, puis AMD.</span>
+            <span className="text-accent">{ui.thenAmd}</span>
           </p>
         </Reveal>
 
@@ -31,7 +41,7 @@ export function Experience() {
           <div className="mb-12">
             <Reveal>
               <h3 className="font-mono text-xs uppercase tracking-[0.2em] text-muted mb-4">
-                Expérience professionnelle
+                {ui.experience}
               </h3>
             </Reveal>
             <div className="rounded-2xl overflow-hidden border border-line bg-paper">
@@ -59,7 +69,7 @@ export function Experience() {
         <div className="mb-12">
           <Reveal>
             <h3 className="font-mono text-xs uppercase tracking-[0.2em] text-muted mb-4">
-              Formation
+              {ui.education}
             </h3>
           </Reveal>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -69,6 +79,16 @@ export function Experience() {
                   <span className="font-mono text-xs text-muted uppercase tracking-wider block mb-3 group-hover:text-accent transition-colors">
                     {edu.period}
                   </span>
+                  <div className="flex flex-wrap gap-2 mb-2">
+                    {edu.status && (
+                      <span className="font-mono text-xs uppercase tracking-wider border border-line px-2 py-0.5 rounded">
+                        {statusLabel(edu.status)}
+                      </span>
+                    )}
+                    {edu.location && (
+                      <span className="font-mono text-xs text-muted">{edu.location}</span>
+                    )}
+                  </div>
                   <h4 className="text-sm font-bold mb-2 leading-snug">{edu.title}</h4>
                   <p className="text-xs text-muted">{edu.institution}</p>
                 </div>
@@ -81,7 +101,7 @@ export function Experience() {
           <div>
             <Reveal>
               <h3 className="font-mono text-xs uppercase tracking-[0.2em] text-muted mb-4">
-                Certification
+                {ui.certification}
               </h3>
             </Reveal>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

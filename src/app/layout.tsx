@@ -4,6 +4,7 @@ import './globals.css';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { CustomCursor } from '@/components/CustomCursor';
+import { LocaleProvider } from '@/components/LocaleProvider';
 
 const manrope = Manrope({
   subsets: ['latin'],
@@ -38,7 +39,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="fr" className={`${manrope.variable} ${poppins.variable} ${jetbrainsMono.variable}`}>
+    <html lang="en" className={`${manrope.variable} ${poppins.variable} ${jetbrainsMono.variable}`}>
       <body>
         <div className="grain relative isolate min-h-screen overflow-x-clip bg-[#9a948a]">
           <div
@@ -46,9 +47,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             className="fixed inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,#b7b1a6,#8a847a)]"
           />
           <CustomCursor />
-          <Navbar />
-          {children}
-          <Footer />
+          <LocaleProvider>
+            <Navbar />
+            {children}
+            <Footer />
+          </LocaleProvider>
         </div>
       </body>
     </html>

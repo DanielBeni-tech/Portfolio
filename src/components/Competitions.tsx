@@ -1,19 +1,23 @@
 'use client';
 
-import { competitions } from '@/content/competitions';
+import { getCompetitions } from '@/content/competitions';
 import { Reveal } from '@/components/Reveal';
+import { getUi, useLocale } from '@/lib/locale';
 
 export function Competitions() {
+  useLocale();
+  const ui = getUi();
+  const competitions = getCompetitions();
   return (
     <section id="competitions" className="px-3 py-16 md:px-6 md:py-28">
       <div className="mx-auto max-w-[1440px]">
         <Reveal>
           <div className="mb-8 flex items-end justify-between gap-4 md:mb-12">
             <h2 className="max-w-xl font-display text-3xl font-bold leading-tight md:text-5xl">
-              Compétitions
+              {ui.competitions}
             </h2>
             <p className="hidden max-w-xs text-right text-sm leading-relaxed text-muted md:block">
-              Photos par défaut — remplace les fichiers dans public/competitions/.
+              {ui.competitionsNote}
             </p>
           </div>
         </Reveal>
@@ -29,9 +33,11 @@ export function Competitions() {
                     alt={event.name}
                     className="h-full w-full object-cover"
                   />
-                  <span className="absolute bottom-3 left-3 rounded bg-paper/90 px-2 py-1 text-xs text-ink/70">
-                    {event.imageNote}
-                  </span>
+                  {event.imageNote && (
+                    <span className="absolute bottom-3 left-3 rounded bg-paper/90 px-2 py-1 text-xs text-ink/70">
+                      {event.imageNote}
+                    </span>
+                  )}
                 </div>
                 <div className="flex flex-col justify-center px-6 py-8 md:col-span-7 md:px-10">
                   <p className="text-sm text-muted">{event.edition}</p>
@@ -42,7 +48,7 @@ export function Competitions() {
                     {event.description}
                   </p>
                   <p className="mt-5 text-sm">
-                    Projet :{' '}
+                    {ui.projectLabel}{' '}
                     {event.projectHref ? (
                       <a href={event.projectHref} className="font-semibold text-accent link-underline">
                         {event.project}

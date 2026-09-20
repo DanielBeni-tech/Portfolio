@@ -1,28 +1,32 @@
 'use client';
 
-import { communityActivities } from '@/content/community';
+import { getCommunity } from '@/content/community';
 import { Reveal } from '@/components/Reveal';
+import { getUi, useLocale } from '@/lib/locale';
 
 export function Community() {
+  useLocale();
+  const ui = getUi();
+  const communityActivities = getCommunity();
   return (
     <section id="community" className="px-3 py-16 md:px-6 md:py-28">
       <div className="mx-auto max-w-[1440px]">
         <Reveal>
           <div className="flex items-baseline justify-between mb-10 md:mb-16">
             <h2 className="font-mono text-sm uppercase tracking-[0.2em] text-muted">
-              /Communauté
+              /{ui.engagement}
             </h2>
             <span className="font-mono text-xs text-muted hidden md:block">
-              Construire ensemble
+              {ui.together}
             </span>
           </div>
         </Reveal>
 
         <Reveal delay={80}>
           <p className="text-2xl md:text-4xl font-display font-bold max-w-3xl mb-10 md:mb-16 leading-tight">
-            Je ne construis pas seulement du logiciel.
+            {ui.communityLead}
             <br />
-            <span className="text-accent">Je construis des gens autour de la technologie.</span>
+            <span className="text-accent">{ui.communityAccent}</span>
           </p>
         </Reveal>
 
@@ -33,6 +37,12 @@ export function Community() {
                 className="border border-line rounded-2xl p-6 md:p-8 bg-paper card-lift hover:border-ink/20 h-full group"
                 data-cursor=""
               >
+                {act.image && (
+                  <div className="mb-4 overflow-hidden rounded-xl border border-line aspect-[16/9]">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={act.image} alt={act.organization} className="h-full w-full object-cover" />
+                  </div>
+                )}
                 <div className="flex items-start justify-between mb-4">
                   <div>
                     <h3 className="text-xl font-bold mb-1 group-hover:text-accent transition-colors duration-300">

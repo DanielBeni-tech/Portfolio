@@ -2,20 +2,30 @@
 
 import { useEffect, useState } from 'react';
 import { profile } from '@/content/profile';
-import { projects } from '@/content/projects';
+import { getProjects } from '@/content/projects';
+import { getLocale, getUi, setLocale, useLocale } from '@/lib/locale';
 
-const navItems = [
-  { label: 'À propos', href: '#about' },
-  { label: 'Projets', href: '#projects', count: projects.length },
-  { label: 'Compétitions', href: '#competitions' },
-  { label: 'Parcours', href: '#experience' },
-  { label: 'Hors code', href: '#life' },
-  { label: 'Contact', href: '#contact' },
-];
+function navItems() {
+  const ui = getUi();
+  return [
+    { label: ui.about, href: '#about' },
+    { label: ui.skills, href: '#services' },
+    { label: ui.path, href: '#experience' },
+    { label: ui.projects, href: '#projects', count: getProjects().length },
+    { label: ui.competitions, href: '#competitions' },
+    { label: ui.engagement, href: '#community' },
+    { label: ui.life, href: '#life' },
+    { label: ui.contact, href: '#contact' },
+  ];
+}
 
 export function Navbar() {
+  useLocale();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const ui = getUi();
+  const items = navItems();
+  const locale = getLocale();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -33,12 +43,12 @@ export function Navbar() {
         <nav className="max-w-container mx-auto px-4 md:px-6 h-14 md:h-16 flex items-center justify-between">
           <a href="#top" className="pill text-xs">
             <span className="status-dot" />
-            <span className="hidden sm:inline">Disponible pour de nouveaux projets</span>
-            <span className="sm:hidden">Disponible</span>
+            <span className="hidden sm:inline">{ui.available}</span>
+            <span className="sm:hidden">{ui.availableShort}</span>
           </a>
 
-          <div className="hidden md:flex items-center gap-6">
-            {navItems.map((item) => (
+          <div className="hidden lg:flex items-center gap-4 overflow-x-auto">
+            {items.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
@@ -51,6 +61,14 @@ export function Navbar() {
           </div>
 
           <div className="hidden md:flex items-center gap-3">
+            <button
+              type="button"
+              className="pill text-xs"
+              onClick={() => setLocale(locale === 'fr' ? 'en' : 'fr')}
+              aria-label="FR / EN"
+            >
+              {locale === 'fr' ? 'EN' : 'FR'}
+            </button>
             <a
               href={profile.cvUrl}
               target="_blank"
@@ -63,9 +81,9 @@ export function Navbar() {
             <a
               href={`mailto:${profile.email}`}
               className="btn-dark text-xs md:text-sm"
-              data-cursor="Écrire"
+              data-cursor={ui.write}
             >
-              Parlons-en →
+              {ui.talk}
             </a>
           </div>
 
@@ -73,7 +91,7 @@ export function Navbar() {
             className="md:hidden font-mono text-sm font-semibold"
             onClick={() => setMenuOpen(true)}
           >
-            Menu
+            {ui.menu}
           </button>
         </nav>
       </header>
@@ -86,7 +104,14 @@ export function Navbar() {
           >
             ✕
           </button>
-          {navItems.map((item, i) => (
+          <button
+            type="button"
+            className="pill text-sm"
+            onClick={() => setLocale(locale === 'fr' ? 'en' : 'fr')}
+          >
+            {locale === 'fr' ? 'EN' : 'FR'}
+          </button>
+          {items.map((item, i) => (
             <a
               key={item.href}
               href={item.href}
@@ -104,14 +129,14 @@ export function Navbar() {
             className="pill mt-2"
             onClick={() => setMenuOpen(false)}
           >
-            Voir le CV
+            {ui.seeCv}
           </a>
           <a
             href={`mailto:${profile.email}`}
             className="btn-dark mt-2"
             onClick={() => setMenuOpen(false)}
           >
-            Parlons-en →
+            {ui.talk}
           </a>
         </div>
       )}

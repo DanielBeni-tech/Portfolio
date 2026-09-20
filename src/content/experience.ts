@@ -1,3 +1,5 @@
+import { pick } from '@/lib/locale';
+
 export interface ExperienceItem {
   id: string;
   role: string;
@@ -38,22 +40,89 @@ export const education = [
     period: '2024 — présent · 3e année',
     title: 'Ingénieur des Travaux de Télécommunication — Informatique & Réseaux',
     institution: "SUP'PTIC · Yaoundé",
+    status: 'En cours',
+    location: 'Yaoundé',
   },
   {
     period: '2024',
     title: 'Baccalauréat C',
     institution: 'Lycée de Biyem-Assi',
+    status: 'Terminé',
+    location: 'Yaoundé',
   },
   {
     period: '2022 — 2023',
     title: 'Développement web',
     institution: 'Formation pratique',
+    status: 'Terminé',
   },
   {
     period: '2021 — 2022',
     title: 'Robotique et systèmes embarqués',
     institution: 'Formation pratique',
+    status: 'Terminé',
   },
 ];
 
 export const certifications: { period: string; title: string; institution: string }[] = [];
+
+const experiencesEn: ExperienceItem[] = [
+  {
+    ...experiences[0],
+    role: 'Freelance Developer',
+    company: 'Independent',
+    period: '2023 — present',
+    description:
+      'Independent fullstack development: sites, apps and interfaces, alongside studies.',
+  },
+  {
+    ...experiences[1],
+    role: 'Intern — Fullstack & Lead Developer',
+    company: 'CAMTEL · Fraud Control Service · Douala',
+    period: 'July — September 2026',
+    description:
+      'Fullstack lead on CARBURFLOW: frontend, UX/UI, Django API and dashboard, for the Fraud Control Service (Littoral Regional Delegation, Fixed Business Unit, Bepanda).',
+  },
+  {
+    ...experiences[2],
+    role: 'Participant — AMD AI Academy Challenge',
+    period: 'September — December 2026',
+    description:
+      'Selected for a three-month individual challenge on GPU-accelerated AI: LLMs, RAG, AI agents, MCP, multimodal AI, web agents, multi-agent systems and fine-tuning.',
+  },
+];
+
+const educationEn = [
+  {
+    ...education[0],
+    period: '2024 — present · 3rd year',
+    title: 'Telecommunications Works Engineer — Computing & Networks',
+    status: 'En cours',
+  },
+  {
+    ...education[1],
+    title: 'Baccalauréat C',
+    institution: 'Lycée de Biyem-Assi',
+    status: 'Terminé',
+  },
+  {
+    ...education[2],
+    title: 'Web development',
+    institution: 'Hands-on training',
+    status: 'Terminé',
+  },
+  {
+    ...education[3],
+    title: 'Robotics and embedded systems',
+    institution: 'Hands-on training',
+    status: 'Terminé',
+  },
+];
+
+export function getExperiences() {
+  return pick(experiences, experiencesEn);
+}
+
+export function getEducation() {
+  return pick(education, educationEn);
+}

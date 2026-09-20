@@ -1,6 +1,12 @@
+'use client';
+
 import { profile } from '@/content/profile';
+import { getUi, useLocale } from '@/lib/locale';
 
 export function Footer() {
+  useLocale();
+  const ui = getUi();
+
   return (
     <footer className="px-3 pb-3 md:px-6 md:pb-6">
       <div className="mx-auto max-w-[1440px]">
@@ -17,7 +23,7 @@ export function Footer() {
               </div>
               <div>
                 <span className="font-bold text-sm">{profile.name}</span>
-                <p className="font-mono text-[10px] text-muted uppercase tracking-wider">
+                <p className="font-mono text-xs text-muted uppercase tracking-wider">
                   {profile.location}
                 </p>
               </div>
@@ -37,7 +43,7 @@ export function Footer() {
                 download="CV-Daniel-Beni.pdf"
                 className="font-mono text-xs text-muted hover:text-ink transition-colors uppercase tracking-wider"
               >
-                Télécharger
+                {ui.download}
               </a>
               {profile.socials.map((social) => (
                 <a
@@ -59,7 +65,6 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Marquee tagline */}
           <div className="overflow-hidden border-t border-line pt-6">
             <div className="flex gap-8 animate-marquee whitespace-nowrap">
               {[...Array(2)].map((_, dup) => (
@@ -78,11 +83,11 @@ export function Footer() {
           </div>
 
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mt-6">
-            <span className="font-mono text-[10px] text-muted uppercase tracking-wider">
-              © {new Date().getFullYear()} {profile.name} · Tous droits réservés
+            <span className="font-mono text-xs text-muted uppercase tracking-wider">
+              © {new Date().getFullYear()} {profile.name} · {ui.rights}
             </span>
-            <span className="font-mono text-[10px] text-muted uppercase tracking-wider">
-              Conçu et construit à Yaoundé · Cameroun
+            <span className="font-mono text-xs text-muted uppercase tracking-wider">
+              {ui.designedIn}
             </span>
           </div>
         </div>
