@@ -20,7 +20,7 @@ export const competitions: CompetitionItem[] = [
     projectHref: '#projects',
     description:
       "Compétition business et produit Orange Cameroun : conception d'une offre digitale data-driven pour PME camerounaises, en équipe, sous contrainte de temps.",
-    image: '/competitions/orange-business-game.jpg',
+    image: '/competitions/orange-business-game.webp',
   },
   {
     id: 'juin-cursor',
@@ -30,7 +30,7 @@ export const competitions: CompetitionItem[] = [
     projectHref: '#projects',
     description:
       "Hackathon Cursor Cameroun : SYNTRA, messagerie d'entreprise livrée en conditions de compétition.",
-    image: '/competitions/juin-syntra.jpg',
+    image: '/competitions/juin-syntra.webp',
   },
   {
     id: 'hackverse',
@@ -40,7 +40,7 @@ export const competitions: CompetitionItem[] = [
     projectHref: '#projects',
     description:
       "Routage intelligent pour véhicules de secours — « Les routes qui sauvent des vies ».",
-    image: '/competitions/hackverse.jpg',
+    image: '/competitions/hackverse.webp',
     imageNote: 'Remplace ce visuel par tes photos',
   },
 ];

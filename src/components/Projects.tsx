@@ -3,12 +3,13 @@
 import { useRef, useState } from 'react';
 import { getProjects, type ProjectItem } from '@/content/projects';
 import { Reveal } from '@/components/Reveal';
+import { ProjectModal } from '@/components/ProjectModal';
 import { getUi, useLocale } from '@/lib/locale';
 import { gsap, registerGsap, useGSAP } from '@/lib/gsap';
 
 registerGsap();
 
-function ProjectCard({ project }: { project: ProjectItem }) {
+function ProjectCard({ project, onOpen }: { project: ProjectItem; onOpen: (p: ProjectItem) => void }) {
   const ui = getUi();
   const cardRef = useRef<HTMLDivElement>(null);
 
@@ -44,7 +45,16 @@ function ProjectCard({ project }: { project: ProjectItem }) {
   return (
     <div
       ref={cardRef}
-      className="group border border-line rounded-2xl overflow-hidden bg-paper hover:border-ink/20 h-full flex flex-col"
+      role="button"
+      tabIndex={0}
+      onClick={() => onOpen(project)}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          onOpen(project);
+        }
+      }}
+      className="group border border-line rounded-2xl overflow-hidden bg-paper hover:border-ink/20 h-full flex flex-col cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent"
       data-cursor={ui.seeWork}
     >
       {/* Cover with real image */}
@@ -115,7 +125,7 @@ function ProjectCard({ project }: { project: ProjectItem }) {
         </div>
 
         {/* Links */}
-        <div className="flex gap-3 mt-4">
+        <div className="flex gap-3 mt-4" onClick={(e) => e.stopPropagation()}>
           {project.github && (
             <a
               href={project.github}
@@ -147,6 +157,7 @@ export function Projects() {
   const ui = getUi();
   const projects = getProjects();
   const [filter, setFilter] = useState('all');
+  const [active, setActive] = useState<ProjectItem | null>(null);
   const filters = [
     { label: ui.all, value: 'all' },
     { label: ui.real, value: 'real' },
@@ -201,11 +212,12 @@ export function Projects() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {filtered.map((project, i) => (
             <Reveal key={project.id} delay={i * 60}>
-              <ProjectCard project={project} />
+              <ProjectCard project={project} onOpen={setActive} />
             </Reveal>
           ))}
         </div>
       </div>
+      <ProjectModal project={active} onClose={() => setActive(null)} />
     </section>
   );
 }

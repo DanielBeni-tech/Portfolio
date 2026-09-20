@@ -41,7 +41,7 @@ function Strip({ hidden = false }: { hidden?: boolean }) {
 export function TechMarquee() {
   return (
     <div className="overflow-hidden border-y border-line bg-paper py-6 [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
-      <div className="flex w-max animate-marquee hover:[animation-play-state:paused] motion-reduce:animate-none">
+      <div className="flex w-max animate-marquee hover:[animation-play-state:paused] motion-reduce:animate-none [[data-modal]_&]:[animation-play-state:paused]">
         <Strip />
         <Strip hidden />
       </div>

@@ -60,7 +60,7 @@ export function About() {
               <div className="img-zoom frame aspect-[4/5] overflow-hidden rounded-2xl border border-line">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="/photos/daniel-2025.jpeg"
+                  src="/photos/daniel-2025.webp"
                   alt="Daniel Beni Mpodol Welisan"
                   className="h-full w-full object-cover"
                   loading="lazy"
@@ -93,9 +93,16 @@ export function About() {
             <article key={item.year} className="grid grid-cols-1 items-stretch gap-4 md:grid-cols-12">
               <div className={`path-frame overflow-hidden rounded-2xl border border-line md:col-span-6 ${i % 2 === 1 ? 'md:col-start-7' : ''}`}>
                 <div className="img-zoom relative aspect-[16/10] md:aspect-[5/4]">
-                  {item.image ? (
+                  {item.image && item.image2 ? (
+                    <div className="grid h-full w-full grid-cols-2 gap-1 bg-line">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={item.image} alt="" className="h-full w-full object-cover" loading="lazy" decoding="async" />
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={item.image2} alt="" className="h-full w-full bg-ink object-contain" loading="lazy" decoding="async" />
+                    </div>
+                  ) : item.image ? (
                     // eslint-disable-next-line @next/next/no-img-element
-                    <img src={item.image} alt="" className="h-full w-full object-cover" loading="lazy" />
+                    <img src={item.image} alt="" className="h-full w-full object-cover" loading="lazy" decoding="async" />
                   ) : (
                     <div className="h-full w-full bg-ink" />
                   )}
@@ -122,7 +129,13 @@ export function About() {
               ) : null}
               {stat.icon ? (
                 // eslint-disable-next-line @next/next/no-img-element
-                <img src={stat.icon} alt="" className="absolute right-5 top-5 size-14 object-contain opacity-80" loading="lazy" />
+                <img
+                  src={stat.icon}
+                  alt=""
+                  className="pointer-events-none absolute -right-3 top-3 h-[62%] w-auto object-contain opacity-90 drop-shadow-[0_12px_24px_rgba(0,0,0,0.45)]"
+                  loading="lazy"
+                  decoding="async"
+                />
               ) : null}
               <div className="relative flex h-full flex-col justify-end p-5">
                 <p className="font-display text-5xl font-bold">{stat.value}</p>
@@ -140,7 +153,7 @@ export function About() {
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             <div className="soft-panel relative min-h-[280px] overflow-hidden rounded-2xl border border-line">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/photos/daniel-event.jpeg" alt="" className="absolute inset-0 h-full w-full object-cover object-top" loading="lazy" />
+              <img src="/community/president-2026.webp" alt="" className="absolute inset-0 h-full w-full object-cover" loading="lazy" />
               <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/20 to-transparent" />
               <div className="relative flex h-full flex-col justify-end p-6 text-white">
                 <p className="font-display text-2xl font-bold">{profile.softSkills[3]}</p>
@@ -149,7 +162,7 @@ export function About() {
             </div>
             <div className="soft-panel relative min-h-[280px] overflow-hidden rounded-2xl border border-line">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/illustrations/teamwork.png" alt="" className="absolute inset-0 h-full w-full object-cover" loading="lazy" />
+              <img src="/photos/orange-odc-work.webp" alt="" className="absolute inset-0 h-full w-full object-cover object-[50%_35%]" loading="lazy" />
               <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/20 to-transparent" />
               <div className="relative flex h-full flex-col justify-end p-6 text-white">
                 <p className="font-display text-2xl font-bold">{profile.softSkills[1]}</p>

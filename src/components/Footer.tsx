@@ -16,7 +16,7 @@ export function Footer() {
               <div className="w-12 h-12 rounded-full overflow-hidden border border-line">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="/photos/daniel-2024.jpeg"
+                  src="/photos/daniel-2024.webp"
                   alt="Daniel Beni"
                   className="w-full h-full object-cover object-center"
                 />

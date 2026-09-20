@@ -26,11 +26,11 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Daniel Beni Mpodol Welisan — Fullstack & Lead Developer',
+  title: 'Daniel Beni Mpodol Welisan — Élève ingénieur télécom · Fullstack & Lead Developer',
   description:
-    "Daniel Beni Mpodol Welisan — lead développeur fullstack (JavaScript et Python), frontend, UI/UX et IA. Portfolio et CV.",
+    "Daniel Beni Mpodol Welisan — élève ingénieur en télécommunications, lead développeur fullstack (JavaScript et Python), frontend, UI/UX et IA. Portfolio et CV.",
   openGraph: {
-    title: 'Daniel Beni Mpodol Welisan — Fullstack & Lead Developer',
+    title: 'Daniel Beni Mpodol Welisan — Élève ingénieur télécom · Fullstack & Lead Developer',
     description:
       "Lead fullstack JS/Python, frontend & UX/UI. CARBURFLOW, SYNTRA, SUPONEAI, SONE, Club Info, Mabbtek.",
     type: 'website',

@@ -18,6 +18,14 @@ export const experiences: ExperienceItem[] = [
       "Développement fullstack en indépendant : sites, applications et interfaces, en parallèle de la formation.",
   },
   {
+    id: 'mabbtek',
+    role: 'CTO',
+    company: 'Mabbtek · Yaoundé',
+    period: '2024 — présent',
+    description:
+      "Mabbtek est née en 2024 d'une communauté d'élèves ingénieurs de SUP'PTIC. Direction technique : choix de stack, architecture des produits et site officiel.",
+  },
+  {
     id: 'camtel',
     role: 'Stagiaire — Fullstack & Lead Developer',
     company: 'CAMTEL · Service de la Lutte contre la Fraude · Douala',
@@ -64,7 +72,25 @@ export const education = [
   },
 ];
 
-export const certifications: { period: string; title: string; institution: string }[] = [];
+export const certifications: { period: string; title: string; institution: string }[] = [
+  {
+    period: '2026 — en cours',
+    title: 'Hugging Face LLM Course',
+    institution: 'Hugging Face',
+  },
+];
+
+const certificationsEn: typeof certifications = [
+  {
+    period: '2026 — in progress',
+    title: 'Hugging Face LLM Course',
+    institution: 'Hugging Face',
+  },
+];
+
+export function getCertifications() {
+  return pick(certifications, certificationsEn);
+}
 
 const experiencesEn: ExperienceItem[] = [
   {
@@ -77,6 +103,14 @@ const experiencesEn: ExperienceItem[] = [
   },
   {
     ...experiences[1],
+    role: 'CTO',
+    company: 'Mabbtek · Yaoundé',
+    period: '2024 — present',
+    description:
+      "Mabbtek was born in 2024 from a community of SUP'PTIC engineering students. Technical lead: stack choices, product architecture and the official site.",
+  },
+  {
+    ...experiences[2],
     role: 'Intern — Fullstack & Lead Developer',
     company: 'CAMTEL · Fraud Control Service · Douala',
     period: 'July — September 2026',
@@ -84,7 +118,7 @@ const experiencesEn: ExperienceItem[] = [
       'Fullstack lead on CARBURFLOW: frontend, UX/UI, Django API and dashboard, for the Fraud Control Service (Littoral Regional Delegation, Fixed Business Unit, Bepanda).',
   },
   {
-    ...experiences[2],
+    ...experiences[3],
     role: 'Participant — AMD AI Academy Challenge',
     period: 'September — December 2026',
     description:

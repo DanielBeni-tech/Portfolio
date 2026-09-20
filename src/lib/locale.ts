@@ -14,7 +14,6 @@ export function setLocale(next: Locale) {
   locale = next;
   if (typeof document !== 'undefined') {
     document.documentElement.lang = next;
-    localStorage.setItem('locale-v2', next);
   }
   listeners.forEach((fn) => fn());
 }
@@ -26,10 +25,10 @@ export function subscribeLocale(fn: () => void) {
   };
 }
 
+// Always start in English; the FR/EN toggle only lasts for the session.
 export function initLocale() {
   if (typeof window === 'undefined') return;
-  const saved = localStorage.getItem('locale-v2');
-  locale = saved === 'fr' ? 'fr' : 'en';
+  locale = 'en';
   document.documentElement.lang = locale;
   listeners.forEach((fn) => fn());
 }
