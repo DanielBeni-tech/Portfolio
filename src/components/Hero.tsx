@@ -2,6 +2,7 @@
 
 import { useRef } from 'react';
 import { profile } from '@/content/profile';
+import { getUi, useLocale } from '@/lib/locale';
 import { gsap, registerGsap, useGSAP } from '@/lib/gsap';
 
 registerGsap();
@@ -16,6 +17,8 @@ function splitWords(text: string) {
 }
 
 export function Hero() {
+  useLocale();
+  const ui = getUi();
   const rootRef = useRef<HTMLElement>(null);
 
   useGSAP(
@@ -87,10 +90,10 @@ export function Hero() {
         </div>
 
         <h1 className="relative z-10 px-4 pt-10 text-center font-display font-bold leading-[0.88] tracking-[0.01em] md:pt-14">
-          <span className="block text-outline text-[clamp(2.4rem,8vw,7.5rem)]">
+          <span className="block text-outline text-[clamp(2.4rem,8vw,6rem)]">
             {splitWords(profile.firstName)}
           </span>
-          <span className="mt-1 block text-ink text-[clamp(2.1rem,7vw,6.4rem)]">
+          <span className="mt-1 block text-ink text-[clamp(2.1rem,7vw,6rem)]">
             {splitWords(profile.lastName)}
           </span>
         </h1>
@@ -98,8 +101,8 @@ export function Hero() {
         <a
           href="#projects"
           className="hero-badge absolute right-[6%] top-[36%] z-20 hidden md:block lg:right-[10%] lg:top-[32%]"
-          aria-label="Voir mes projets"
-          data-cursor="Voir"
+          aria-label={ui.projects}
+          data-cursor={ui.seeWork}
         >
           <div className="group relative grid size-24 place-items-center md:size-28">
             <svg viewBox="0 0 100 100" className="absolute inset-0 animate-spin-slow">
@@ -109,7 +112,7 @@ export function Hero() {
                   d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0"
                 />
               </defs>
-              <text className="fill-ink font-mono text-[8.5px] font-bold uppercase tracking-wider">
+              <text className="fill-ink font-mono text-xs font-bold uppercase tracking-wider">
                 <textPath href="#hero-circle" textLength="220" lengthAdjust="spacing">
                   FULLSTACK · LEAD · UX · IA ·
                 </textPath>
@@ -127,15 +130,15 @@ export function Hero() {
           <p className="hero-copy mb-2 hidden font-mono text-xs uppercase tracking-[0.2em] text-muted md:block">
             {profile.alias}
           </p>
-          <h2 className="hero-copy text-[1.7rem] font-bold leading-tight tracking-tight md:text-4xl">
+          <h2 className="hero-copy text-2xl font-bold leading-tight tracking-tight md:text-4xl">
             {profile.title}
           </h2>
-          <p className="hero-copy mt-3 max-w-[22rem] text-[15px] leading-relaxed text-ink/70 max-md:hidden">
+          <p className="hero-copy mt-3 max-w-[22rem] text-base leading-relaxed text-ink/70 max-md:hidden">
             {profile.description}
           </p>
           <div className="hero-copy mt-6 flex flex-wrap items-center gap-3">
-            <a href="#contact" className="btn-dark text-sm" data-cursor="Contact">
-              Collaborons
+            <a href="#contact" className="btn-dark text-sm" data-cursor={ui.contact}>
+              {ui.collaborate}
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} className="size-4">
                 <path d="M7 17 17 7M8 7h9v9" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
@@ -147,14 +150,14 @@ export function Hero() {
               className="pill text-sm"
               data-cursor="CV"
             >
-              Voir le CV
+              {ui.seeCv}
             </a>
             <a
               href={profile.cvUrl}
               download="CV-Daniel-Beni.pdf"
               className="pill text-sm"
             >
-              Télécharger
+              {ui.download}
             </a>
           </div>
         </div>
@@ -177,7 +180,7 @@ export function Hero() {
         </div>
 
         <div className="hero-copy absolute bottom-4 left-1/2 -translate-x-1/2 z-20 hidden md:flex flex-col items-center gap-1">
-          <span className="font-mono text-xs text-muted uppercase tracking-wider">Scroll</span>
+          <span className="font-mono text-xs text-muted uppercase tracking-wider">{ui.scroll}</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="size-4 text-muted scroll-cue">
             <path d="M12 5v14M5 12l7 7 7-7" strokeLinecap="round" strokeLinejoin="round" />
           </svg>

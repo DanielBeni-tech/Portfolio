@@ -1,19 +1,15 @@
 'use client';
 
 import { useRef, useState } from 'react';
-import { projects, type ProjectItem } from '@/content/projects';
+import { getProjects, type ProjectItem } from '@/content/projects';
 import { Reveal } from '@/components/Reveal';
+import { getUi, useLocale } from '@/lib/locale';
 import { gsap, registerGsap, useGSAP } from '@/lib/gsap';
 
 registerGsap();
 
-const filters = [
-  { label: 'Tous', value: 'all' },
-  { label: 'Produits livrés', value: 'real' },
-  { label: 'GitHub', value: 'github' },
-];
-
 function ProjectCard({ project }: { project: ProjectItem }) {
+  const ui = getUi();
   const cardRef = useRef<HTMLDivElement>(null);
 
   useGSAP(
@@ -49,7 +45,7 @@ function ProjectCard({ project }: { project: ProjectItem }) {
     <div
       ref={cardRef}
       className="group border border-line rounded-2xl overflow-hidden bg-paper hover:border-ink/20 h-full flex flex-col"
-      data-cursor="Voir"
+      data-cursor={ui.seeWork}
     >
       {/* Cover with real image */}
       <div className="aspect-[16/10] relative overflow-hidden">
@@ -63,7 +59,7 @@ function ProjectCard({ project }: { project: ProjectItem }) {
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80" />
         <div className="absolute top-3 left-3 z-10">
           <span className="bg-white/90 backdrop-blur-sm text-ink text-xs font-mono uppercase tracking-wider px-2 py-1 rounded-full">
-            {project.category === 'real' ? 'Produit livré' : 'GitHub'}
+            {project.category === 'real' ? ui.real : ui.github}
           </span>
         </div>
         <div className="absolute top-3 right-3 z-10">
@@ -137,7 +133,7 @@ function ProjectCard({ project }: { project: ProjectItem }) {
               rel="noreferrer"
               className="text-xs font-mono text-accent hover:text-ink transition-colors link-underline uppercase tracking-wider"
             >
-              Voir le projet ↗
+              {ui.seeProject} ↗
             </a>
           )}
         </div>
@@ -147,7 +143,15 @@ function ProjectCard({ project }: { project: ProjectItem }) {
 }
 
 export function Projects() {
+  useLocale();
+  const ui = getUi();
+  const projects = getProjects();
   const [filter, setFilter] = useState('all');
+  const filters = [
+    { label: ui.all, value: 'all' },
+    { label: ui.real, value: 'real' },
+    { label: ui.github, value: 'github' },
+  ];
   const filtered =
     filter === 'all' ? projects : projects.filter((p) => p.category === filter);
 
@@ -157,10 +161,10 @@ export function Projects() {
         <Reveal>
           <div className="flex items-baseline justify-between mb-10 md:mb-16">
             <h2 className="font-mono text-sm uppercase tracking-[0.2em] text-muted">
-              /Projets choisis
+              /{ui.chosenProjects}
             </h2>
             <span className="font-mono text-xs text-muted">
-              {projects.length} projets · CV + GitHub
+              {projects.length} {ui.projectsCount}
             </span>
           </div>
         </Reveal>
@@ -168,9 +172,9 @@ export function Projects() {
         {/* Intro text */}
         <Reveal delay={80}>
           <p className="text-2xl md:text-4xl font-display font-bold max-w-3xl mb-10 md:mb-16 leading-tight">
-            Projets livrés, y compris en compétition.
+            {ui.shippedLine}
             <br />
-            <span className="text-accent">SANGO au Hackverse · SYNTRA à JUIN.</span>
+            <span className="text-accent">{ui.shippedAccent}</span>
           </p>
         </Reveal>
 

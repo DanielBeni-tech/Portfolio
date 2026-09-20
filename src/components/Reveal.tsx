@@ -11,6 +11,11 @@ interface RevealProps {
   className?: string;
 }
 
+function inViewport(el: HTMLElement) {
+  const r = el.getBoundingClientRect();
+  return r.top < window.innerHeight && r.bottom > 0;
+}
+
 export function Reveal({ children, delay = 0, className = '' }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -18,6 +23,12 @@ export function Reveal({ children, delay = 0, className = '' }: RevealProps) {
     () => {
       const el = ref.current;
       if (!el) return;
+
+      const fallback = window.setTimeout(() => {
+        if (getComputedStyle(el).opacity === '0') {
+          gsap.set(el, { autoAlpha: 1, y: 0 });
+        }
+      }, 2000);
 
       const mm = gsap.matchMedia();
       mm.add(
@@ -27,7 +38,7 @@ export function Reveal({ children, delay = 0, className = '' }: RevealProps) {
         },
         (context) => {
           const reduce = context.conditions?.reduce;
-          if (reduce) {
+          if (reduce || inViewport(el)) {
             gsap.set(el, { autoAlpha: 1, y: 0 });
             return;
           }
@@ -51,7 +62,10 @@ export function Reveal({ children, delay = 0, className = '' }: RevealProps) {
         }
       );
 
-      return () => mm.revert();
+      return () => {
+        window.clearTimeout(fallback);
+        mm.revert();
+      };
     },
     { scope: ref, dependencies: [delay] }
   );

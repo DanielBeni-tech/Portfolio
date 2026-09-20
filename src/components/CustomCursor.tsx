@@ -12,7 +12,7 @@ export function CustomCursor() {
   const [label, setLabel] = useState('');
 
   useGSAP(() => {
-    if (window.matchMedia('(pointer: coarse)').matches) return;
+    if (!window.matchMedia('(pointer: fine)').matches) return;
 
     const dot = dotRef.current;
     const ring = ringRef.current;

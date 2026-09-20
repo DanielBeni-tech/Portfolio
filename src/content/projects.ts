@@ -1,3 +1,5 @@
+import { pick } from '@/lib/locale';
+
 export interface ProjectItem {
   id: string;
   title: string;
@@ -12,6 +14,7 @@ export interface ProjectItem {
   link?: string;
   github?: string;
   outcomes?: string[];
+  featured?: boolean;
 }
 
 export const projects: ProjectItem[] = [
@@ -26,7 +29,8 @@ export const projects: ProjectItem[] = [
     category: 'real',
     tags: ['React', 'Django', 'PostgreSQL', 'Docker'],
     cover: 'cover-orange',
-    image: 'https://images.pexels.com/photos/21811094/pexels-photo-21811094.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    image: '/projects/carburflow.jpeg',
+    featured: true,
     year: 'Juillet — Septembre 2026',
     github: 'https://github.com/DanielBeni-tech/carbureflows',
     outcomes: [
@@ -46,7 +50,8 @@ export const projects: ProjectItem[] = [
     category: 'real',
     tags: ['React', 'TypeScript', 'Python', 'Temps réel'],
     cover: 'cover-blue',
-    image: 'https://images.pexels.com/photos/2881232/pexels-photo-2881232.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    image: '/projects/syntra.jpeg',
+    featured: true,
     year: '2026',
     github: 'https://github.com/DanielBeni-tech/Syntra',
     link: 'https://comm-hq.vercel.app',
@@ -86,7 +91,7 @@ export const projects: ProjectItem[] = [
     category: 'real',
     tags: ['Python', 'Routage', 'Hackverse'],
     cover: 'cover-green',
-    image: 'https://images.pexels.com/photos/263402/pexels-photo-263402.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    image: '/projects/sango.jpeg',
     year: '2026',
     github: 'https://github.com/DanielBeni-tech/Sango',
     outcomes: [
@@ -126,7 +131,7 @@ export const projects: ProjectItem[] = [
     category: 'github',
     tags: ['TypeScript', 'React', 'Vercel'],
     cover: 'cover-green',
-    image: 'https://images.pexels.com/photos/1181406/pexels-photo-1181406.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    image: '/community/clubinfo.png',
     year: '2026',
     github: 'https://github.com/DanielBeni-tech/clubinfo',
     link: 'https://clubinfo.vercel.app',
@@ -148,6 +153,7 @@ export const projects: ProjectItem[] = [
     tags: ['HTML', 'SCSS', 'JavaScript'],
     cover: 'cover-purple',
     image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    featured: true,
     year: '2025',
     github: 'https://github.com/DanielBeni-tech/Mabbtek-',
     link: 'https://mabbtek.vercel.app',
@@ -155,26 +161,6 @@ export const projects: ProjectItem[] = [
       'Site officiel livré',
       'Pages services, about, contact',
       'Déploiement Vercel',
-    ],
-  },
-  {
-    id: 'wone',
-    title: 'Wone',
-    subtitle: 'Fullstack & Lead Developer · E-learning + chat',
-    description:
-      "Application Next.js d'e-learning et de chat, avec Prisma côté données.",
-    longDescription:
-      "Repo Wone : app Next.js (TypeScript) pensée comme plateforme d'apprentissage et de discussion, avec Prisma pour le modèle de données.",
-    category: 'github',
-    tags: ['Next.js', 'TypeScript', 'Prisma'],
-    cover: 'cover-blue',
-    image: 'https://images.pexels.com/photos/4144923/pexels-photo-4144923.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
-    year: '2026',
-    github: 'https://github.com/DanielBeni-tech/Wone',
-    outcomes: [
-      'App Next.js + Prisma',
-      'E-learning et chat',
-      'Code public sur GitHub',
     ],
   },
   {
@@ -197,4 +183,148 @@ export const projects: ProjectItem[] = [
       'Backend PHP + JS',
     ],
   },
+  {
+    id: 'orange-mboa-business',
+    title: 'ORANGE MBOA BUSINESS',
+    subtitle: 'Lead Product & Fullstack · Orange Business Game #2CDYS2026',
+    description:
+      "PWA mobile-first pour micro-entrepreneurs camerounais (commerçants, snack-bars) : encaissement, suivi des ventes, gestion clients et assistant IA, pensée pour la connectivité limitée.",
+    longDescription:
+      "Conçu et prototypé pour le Orange Business Game (#2CDYS2026) : application mobile-first et offline-first ciblant les micro-entrepreneurs à faible littératie numérique. Tableau de bord du jour (gains, tendance), encaissement par QR code / Orange Money, gestion de clients avec relances, historique des ventes filtrable, assistant IA conversationnel façon WhatsApp (« J'ai vendu combien aujourd'hui ? »), et conseils automatiques (promo, alerte stock bas). Direction visuelle aux couleurs Orange, accessibilité WCAG 2.1 AA, langage simple en français. Prototypé sur Base44 pour aller vite sur le produit dans le temps imparti de la compétition.",
+    category: 'real',
+    featured: false,
+    tags: ['React Native', 'Supabase', 'FastAPI', 'PWA', 'Base44'],
+    cover: 'cover-orange',
+    image: '/projects/orange-mboa-business.png',
+    year: '2026',
+    outcomes: [
+      'Conception produit complète : dashboard, encaissement, clients, ventes, assistant IA',
+      'Pensé offline-first pour connectivité limitée',
+      'Participant #2CDYS2026 — Orange Cameroun',
+    ],
+  },
 ];
+
+const projectsEn: ProjectItem[] = [
+  {
+    ...projects[0],
+    subtitle: 'Fullstack & Lead Developer · CAMTEL internship',
+    description:
+      'Fuel-consumption analysis platform for CAMTEL BUF / SFF: sites, tanks, GHG and anomalies.',
+    longDescription:
+      'Internship project led as fullstack lead at the Fraud Control service. Django backend, React/TypeScript dashboard, PostgreSQL and Docker: field-sheet import, KPIs, history and critical-level detection.',
+    year: 'July — September 2026',
+    outcomes: [
+      'Fullstack lead: Django API + React dashboard',
+      'Multi-site monitoring of levels and consumption',
+      'Field-sheet import and anomaly reading',
+    ],
+  },
+  {
+    ...projects[1],
+    subtitle: 'Fullstack & Lead Developer · JUIN / Cursor Cameroon',
+    description:
+      'Enterprise messenger born at JUIN (Cursor Cameroon): channels, Markdown, code, AI bot — private communication off a classic operator link.',
+    longDescription:
+      'Built at JUIN (Cursor Cameroon). SYNTRA (CommHQ): workspaces, channels, realtime messages, Markdown/code and AI summary. The CV ties it to a private inter-company channel. React frontend, Python/TypeScript backend, live demo.',
+    tags: ['React', 'TypeScript', 'Python', 'Realtime'],
+    outcomes: [
+      'Fullstack lead JS / Python',
+      'Realtime chat, Markdown and AI bot',
+      'Public demo online',
+    ],
+  },
+  {
+    ...projects[2],
+    subtitle: "Fullstack & Lead Developer · SUP'PTIC chatbot",
+    description:
+      'Intelligent assistant to query a base of more than 1,000 questions/answers via semantic search.',
+    longDescription:
+      "SUPONEAI helps SUP'PTIC students query a base of more than 1,000 questions and answers through semantic search. Fullstack lead: conversational interface, frontend, UX and model integration.",
+    year: 'February — May 2026',
+    outcomes: [
+      'Fullstack lead, conversational interface',
+      'More than 1,000 questions/answers',
+      'Semantic search for students',
+    ],
+  },
+  {
+    ...projects[3],
+    subtitle: 'Fullstack & Lead Developer · Hackverse',
+    description:
+      'Intelligent routing for ambulances and firefighters: best path under uncertainty, realtime adaptation, explainable decisions.',
+    longDescription:
+      'Hackverse 2026 project (topic 07). In a large city, emergency delay comes mostly from field uncertainty — not a lack of vehicles. SANGO picks a route with imperfect data, adapts when conditions change, and explains each decision. Repo: The roads that save lives.',
+    outcomes: [
+      'Hackverse competition',
+      'Decision under uncertainty, not the classic shortest path',
+      'Public code on GitHub',
+    ],
+  },
+  {
+    ...projects[4],
+    subtitle: 'Fullstack & Lead Developer · Campus messenger',
+    description:
+      "SUP'PTIC academic messaging PWA: private chats, topic zones, resources and events, realtime.",
+    longDescription:
+      "Sup'Zone (SONE repo): intranet/internet messenger for campus. React + FastAPI, WebSockets, JWT. Zones (admin, AE, subjects), teaching resources and timetables.",
+    outcomes: [
+      'React frontend + FastAPI backend',
+      'Private chat and Zones over WebSocket',
+      'Campus resources and events',
+    ],
+  },
+  {
+    ...projects[5],
+    subtitle: 'Fullstack & Lead Developer · Official site',
+    description: 'Computer club site — public showcase, already online.',
+    longDescription:
+      'TypeScript app deployed on Vercel: the official club site, with a substantial codebase (frontend + light backend).',
+    outcomes: [
+      'Official site in production',
+      'TypeScript stack',
+      'Public code on GitHub',
+    ],
+  },
+  {
+    ...projects[6],
+    subtitle: 'Fullstack & Lead Developer · Official site',
+    description: 'Mabbtek showcase site: pages, services and contact, deployed in production.',
+    longDescription:
+      'Official HTML / SCSS / JavaScript site, with a careful visual direction. Live on mabbtek.vercel.app.',
+    outcomes: [
+      'Official site shipped',
+      'Services, about, contact pages',
+      'Vercel deploy',
+    ],
+  },
+  {
+    ...projects[7],
+    subtitle: 'Fullstack & Lead Developer · Telecom watch',
+    description: 'Interface and backend of a telecom watch site: operators, complaints, dashboards.',
+    longDescription:
+      'Alerte is a UI/UX + PHP backend version of a telecom watch site: operator pages, complaint filing, admin and charts.',
+    outcomes: [
+      'Telecom-watch UI/UX',
+      'Admin, operators, complaints pages',
+      'PHP + JS backend',
+    ],
+  },
+  {
+    ...projects[8],
+    subtitle: 'Lead Product & Fullstack · Orange Business Game #2CDYS2026',
+    description:
+      'Mobile-first PWA for Cameroonian micro-entrepreneurs (shopkeepers, snack bars): checkout, sales tracking, clients and an AI assistant, designed for limited connectivity.',
+    longDescription:
+      'Designed and prototyped for the Orange Business Game (#2CDYS2026): mobile-first and offline-first app for micro-entrepreneurs with low digital literacy. Day dashboard (earnings, trend), QR / Orange Money checkout, client follow-up, filterable sales history, WhatsApp-style AI assistant, and automatic tips (promo, low stock). Orange visual direction, WCAG 2.1 AA, simple French. Prototyped on Base44 to move fast on the product in the competition window.',
+    outcomes: [
+      'Full product design: dashboard, checkout, clients, sales, AI assistant',
+      'Thought offline-first for limited connectivity',
+      'Participant #2CDYS2026 — Orange Cameroon',
+    ],
+  },
+];
+
+export function getProjects() {
+  return pick(projects, projectsEn);
+}
