@@ -40,7 +40,7 @@ export function Footer() {
               </a>
               <a
                 href={profile.cvUrl}
-                download="CV-Daniel-Beni.pdf"
+                download={profile.cvDownload}
                 className="font-mono text-xs text-muted hover:text-ink transition-colors uppercase tracking-wider"
               >
                 {ui.download}

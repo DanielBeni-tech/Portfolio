@@ -1,0 +1,129 @@
+   ▲ Next.js 15.5.25
+   - Local:        http://localhost:3001
+   - Network:      http://10.227.191.10:3001
+
+ ✓ Starting...
+ ✓ Ready in 7.7s
+ ○ Compiling /certifs-view ...
+ ✓ Compiled /certifs-view in 3.9s (589 modules)
+ GET /certifs-view 200 in 4721ms
+ ○ Compiling / ...
+ ✓ Compiled / in 1923ms (633 modules)
+ GET / 200 in 2585ms
+ GET / 200 in 421ms
+ GET / 200 in 275ms
+ GET / 200 in 269ms
+ ✓ Compiled /certifs-view in 330ms (366 modules)
+ GET /certifs-view?i=0 200 in 695ms
+ GET /certifs-view?i=1 200 in 115ms
+ GET /certifs-view?i=2 200 in 163ms
+ GET /certifs-view?i=2 200 in 111ms
+ GET / 200 in 304ms
+ GET / 200 in 262ms
+ GET /certifs-view?i=2 200 in 309ms
+ GET /certifs-view?i=3 200 in 116ms
+ GET /certifs-view?i=4 200 in 132ms
+ ✓ Compiled in 2.3s (637 modules)
+ GET /certifs-view?i=4 200 in 1463ms
+ ✓ Compiled in 3.3s (637 modules)
+ GET /certifs-view?i=4 200 in 347ms
+ ✓ Compiled in 541ms (271 modules)
+ GET /certifs-view?i=4 200 in 115ms
+ ✓ Compiled in 356ms (271 modules)
+ GET /certifs-view?i=4 200 in 48ms
+ ✓ Compiled in 709ms (637 modules)
+ GET /certifs-view?i=4 200 in 181ms
+ ✓ Compiled in 821ms (637 modules)
+ GET /certifs-view?i=4 200 in 240ms
+ ✓ Compiled in 1345ms (637 modules)
+ GET /certifs-view?i=4 200 in 191ms
+ ⚠ ./src/components/Experience.tsx
+Attempted import error: 'getCertifications' is not exported from '@/content/experience' (imported as 'getCertifications').
+
+Import trace for requested module:
+./src/components/Experience.tsx
+
+./src/components/Experience.tsx
+Attempted import error: 'getCertifications' is not exported from '@/content/experience' (imported as 'getCertifications').
+
+Import trace for requested module:
+./src/components/Experience.tsx
+ GET /certifs-view?i=4 200 in 115ms
+ ✓ Compiled in 1017ms (639 modules)
+ GET /certifs-view?i=4 200 in 111ms
+ ✓ Compiled in 1798ms (641 modules)
+ GET /certifs-view?i=4 200 in 181ms
+ GET / 200 in 607ms
+ GET / 200 in 243ms
+ GET / 200 in 247ms
+ GET / 200 in 242ms
+ GET / 200 in 292ms
+ GET / 200 in 310ms
+ GET /certifs-view 200 in 124ms
+ ✓ Compiled in 1482ms (273 modules)
+ GET / 200 in 119ms
+ GET / 200 in 95ms
+ ✓ Compiled in 581ms (273 modules)
+ GET / 200 in 133ms
+ GET / 200 in 141ms
+ ✓ Compiled in 2.7s (641 modules)
+ GET / 200 in 965ms
+ GET / 200 in 932ms
+ ✓ Compiled in 2.5s (641 modules)
+ GET / 200 in 497ms
+ GET / 200 in 104ms
+ ✓ Compiled in 1626ms (641 modules)
+ GET / 200 in 361ms
+ GET / 200 in 77ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ⨯ ReferenceError: getLocale is not defined
+    at Experience (src/components/Experience.tsx:17:18)
+  15 |   useLocale();
+  16 |   const ui = getUi();
+> 17 |   const locale = getLocale();
+     |                  ^
+  18 |   const experiences = getExperiences();
+  19 |   const education = getEducation();
+  20 |   const certSkills = getCertifications(); {
+  digest: '3935221955'
+}
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ⨯ ReferenceError: getLocale is not defined
+    at Experience (src/components/Experience.tsx:17:18)
+  15 |   useLocale();
+  16 |   const ui = getUi();
+> 17 |   const locale = getLocale();
+     |                  ^
+  18 |   const experiences = getExperiences();
+  19 |   const education = getEducation();
+  20 |   const certSkills = getCertifications(); {
+  digest: '3935221955'
+}
+ GET / 500 in 1299ms
+ GET / 500 in 446ms
+ ✓ Compiled in 1239ms (641 modules)
+ ⨯ ReferenceError: getLocale is not defined
+    at Experience (src/components/Experience.tsx:17:18)
+  15 |   useLocale();
+  16 |   const ui = getUi();
+> 17 |   const locale = getLocale();
+     |                  ^
+  18 |   const experiences = getExperiences();
+  19 |   const education = getEducation();
+  20 |   const certSkills = getCertifications(); {
+  digest: '3935221955'
+}
+ ⨯ ReferenceError: getLocale is not defined
+    at Experience (src/components/Experience.tsx:17:18)
+  15 |   useLocale();
+  16 |   const ui = getUi();
+> 17 |   const locale = getLocale();
+     |                  ^
+  18 |   const experiences = getExperiences();
+  19 |   const education = getEducation();
+  20 |   const certSkills = getCertifications(); {
+  digest: '3935221955'
+}
+ GET / 500 in 771ms
+ GET / 500 in 278ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
