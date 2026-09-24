@@ -190,7 +190,7 @@ export function About() {
                   <path d="M7 17 17 7M8 7h9v9" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </a>
-              <a href={profile.cvUrl} download={profile.cvDownload} className="pill text-sm">
+              <a href={profile.cvUrl} download="CV-Daniel-Beni.pdf" className="pill text-sm">
                 {ui.downloadPdf}
               </a>
             </div>

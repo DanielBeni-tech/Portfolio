@@ -125,8 +125,7 @@ export const profileEn = {
   email: 'daniel100beni@gmail.com',
   github: 'https://github.com/DanielBeni-tech',
   linkedin: 'https://linkedin.com/in/daniel-beni',
-  cvUrl: '/CV-Daniel-Beni-EN.pdf',
-  cvDownload: 'CV-Daniel-Beni-EN.pdf',
+  cvUrl: '/CV-Daniel-Beni.pdf',
   socials: [
     { label: 'GitHub', href: 'https://github.com/DanielBeni-tech', icon: 'github' },
     { label: 'LinkedIn', href: 'https://linkedin.com/in/daniel-beni', icon: 'linkedin' },
@@ -207,11 +206,6 @@ export const uiEn = {
   stack: 'Stack',
   code: 'Code',
   openProject: 'Open project',
-  viewCert: 'View certificate',
-  certSkills: 'Skills & training',
-  certLoisirs: 'Hobbies & games',
-  cvTitle: 'Curriculum vitae',
-  cvOpenTab: 'Open in a new tab',
 };
 
 export const uiFr = {
@@ -287,11 +281,6 @@ export const uiFr = {
   stack: 'Stack',
   code: 'Code',
   openProject: 'Ouvrir le projet',
-  viewCert: 'Voir le certificat',
-  certSkills: 'Compétences & formations',
-  certLoisirs: 'Loisirs & jeux',
-  cvTitle: 'Curriculum vitae',
-  cvOpenTab: 'Ouvrir dans un nouvel onglet',
 };
 
 export const levelEn: Record<string, string> = {

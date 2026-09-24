@@ -4,8 +4,6 @@ import { useEffect, useState } from 'react';
 import { profile } from '@/content/profile';
 import { getProjects } from '@/content/projects';
 import { getLocale, getUi, setLocale, useLocale } from '@/lib/locale';
-import { LocaleFlags } from '@/components/Flags';
-import { useCvModal } from '@/components/CvModal';
 
 function navItems() {
   const ui = getUi();
@@ -28,7 +26,6 @@ export function Navbar() {
   const ui = getUi();
   const items = navItems();
   const locale = getLocale();
-  const openCv = useCvModal();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -64,15 +61,23 @@ export function Navbar() {
           </div>
 
           <div className="hidden md:flex items-center gap-3">
-            <LocaleFlags locale={locale} onChange={setLocale} />
             <button
               type="button"
               className="pill text-xs"
-              onClick={() => openCv()}
+              onClick={() => setLocale(locale === 'fr' ? 'en' : 'fr')}
+              aria-label="FR / EN"
+            >
+              {locale === 'fr' ? 'EN' : 'FR'}
+            </button>
+            <a
+              href={profile.cvUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="pill text-xs"
               data-cursor="CV"
             >
               CV
-            </button>
+            </a>
             <a
               href={`mailto:${profile.email}`}
               className="btn-dark text-xs md:text-sm"
@@ -99,7 +104,13 @@ export function Navbar() {
           >
             ✕
           </button>
-          <LocaleFlags locale={locale} onChange={setLocale} />
+          <button
+            type="button"
+            className="pill text-sm"
+            onClick={() => setLocale(locale === 'fr' ? 'en' : 'fr')}
+          >
+            {locale === 'fr' ? 'EN' : 'FR'}
+          </button>
           {items.map((item, i) => (
             <a
               key={item.href}
@@ -111,16 +122,15 @@ export function Navbar() {
               {item.label}
             </a>
           ))}
-          <button
-            type="button"
+          <a
+            href={profile.cvUrl}
+            target="_blank"
+            rel="noreferrer"
             className="pill mt-2"
-            onClick={() => {
-              setMenuOpen(false);
-              openCv();
-            }}
+            onClick={() => setMenuOpen(false)}
           >
             {ui.seeCv}
-          </button>
+          </a>
           <a
             href={`mailto:${profile.email}`}
             className="btn-dark mt-2"
