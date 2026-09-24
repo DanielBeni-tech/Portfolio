@@ -125,7 +125,8 @@ export const profileEn = {
   email: 'daniel100beni@gmail.com',
   github: 'https://github.com/DanielBeni-tech',
   linkedin: 'https://linkedin.com/in/daniel-beni',
-  cvUrl: '/CV-Daniel-Beni.pdf',
+  cvUrl: '/CV-Daniel-Beni-EN.pdf',
+  cvDownload: 'CV-Daniel-Beni-EN.pdf',
   socials: [
     { label: 'GitHub', href: 'https://github.com/DanielBeni-tech', icon: 'github' },
     { label: 'LinkedIn', href: 'https://linkedin.com/in/daniel-beni', icon: 'linkedin' },
@@ -206,6 +207,7 @@ export const uiEn = {
   stack: 'Stack',
   code: 'Code',
   openProject: 'Open project',
+  viewCert: 'View certificate',
 };
 
 export const uiFr = {
@@ -281,6 +283,7 @@ export const uiFr = {
   stack: 'Stack',
   code: 'Code',
   openProject: 'Ouvrir le projet',
+  viewCert: 'Voir le certificat',
 };
 
 export const levelEn: Record<string, string> = {
