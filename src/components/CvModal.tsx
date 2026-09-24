@@ -92,7 +92,7 @@ function CvModal({
           </div>
         </div>
 
-        <iframe src={cv.url} title={ui.cvTitle} className="h-[70vh] w-full flex-1 bg-white" />
+        <iframe src={cv.url} title={ui.cvTitle} className="h-[80vh] w-full flex-1 bg-white" />
 
         <div className="flex flex-wrap items-center justify-between gap-3 border-t border-line px-4 py-3 md:px-6">
           <a

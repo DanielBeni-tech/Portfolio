@@ -2,6 +2,7 @@
 
 import { profile } from '@/content/profile';
 import { getUi, useLocale } from '@/lib/locale';
+import { useCvModal } from '@/components/CvModal';
 
 export function Footer() {
   useLocale();

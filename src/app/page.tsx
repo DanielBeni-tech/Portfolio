@@ -5,7 +5,7 @@ import { Experience } from '@/components/Experience';
 import { Projects } from '@/components/Projects';
 import { Competitions } from '@/components/Competitions';
 import { Community } from '@/components/Community';
-import { Life } from '@/components/Life';
+import { OffCode } from '@/components/OffCode';
 import { Contact } from '@/components/Contact';
 
 export default function Home() {
