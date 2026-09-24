@@ -72,6 +72,26 @@ export const education = [
   },
 ];
 
+export const certifications: { period: string; title: string; institution: string }[] = [
+  {
+    period: '2026 — en cours',
+    title: 'Hugging Face LLM Course',
+    institution: 'Hugging Face',
+  },
+];
+
+const certificationsEn: typeof certifications = [
+  {
+    period: '2026 — in progress',
+    title: 'Hugging Face LLM Course',
+    institution: 'Hugging Face',
+  },
+];
+
+export function getCertifications() {
+  return pick(certifications, certificationsEn);
+}
+
 const experiencesEn: ExperienceItem[] = [
   {
     ...experiences[0],

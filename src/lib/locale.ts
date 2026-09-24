@@ -1,5 +1,5 @@
 import { useSyncExternalStore } from 'react';
-import { uiEn, uiFr, levelEn } from '@/content/en';
+import { uiEn, uiFr } from '@/content/en';
 
 export type Locale = 'fr' | 'en';
 
@@ -43,10 +43,4 @@ export function getUi() {
 
 export function useLocale() {
   return useSyncExternalStore(subscribeLocale, getLocale, () => 'en' as Locale);
-}
-
-/** Statut localisé ('Terminé' → 'Done' en EN) ; undefined si absent. */
-export function formatStatus(status?: string): string | undefined {
-  if (!status) return undefined;
-  return locale === 'en' ? levelEn[status] ?? status : status;
 }
