@@ -40,7 +40,7 @@ export function Contact() {
               <a href={profile.cvUrl} target="_blank" rel="noreferrer" className="pill text-sm" data-cursor="CV">
                 {ui.seeCv} ↗
               </a>
-              <a href={profile.cvUrl} download={profile.cvDownload} className="pill text-sm">
+              <a href={profile.cvUrl} download="CV-Daniel-Beni.pdf" className="pill text-sm">
                 {ui.downloadCv}
               </a>
               {profile.socials.map((social) => (
