@@ -2,22 +2,23 @@
 
 import { useState } from 'react';
 import { getExperiences, getEducation } from '@/content/experience';
-import { getCertifications, type CertificationItem } from '@/content/certifications';
+import {
+  getCertifications,
+  getCertificationsLoisirs,
+  type CertificationItem,
+} from '@/content/certifications';
 import { CertificationModal } from '@/components/CertificationModal';
 import { Reveal } from '@/components/Reveal';
-import { getLocale, getUi, useLocale } from '@/lib/locale';
-import { levelEn } from '@/content/en';
+import { formatStatus, getUi, useLocale } from '@/lib/locale';
 
 export function Experience() {
   useLocale();
   const ui = getUi();
-  const locale = getLocale();
   const experiences = getExperiences();
   const education = getEducation();
-  const certifications = getCertifications();
+  const certSkills = getCertifications();
+  const certLoisirs = getCertificationsLoisirs();
   const [activeCert, setActiveCert] = useState<CertificationItem | null>(null);
-  const statusLabel = (status?: string) =>
-    status ? (locale === 'en' ? levelEn[status] ?? status : status) : undefined;
 
   return (
     <section id="experience" className="px-3 py-16 md:px-6 md:py-28">
@@ -87,7 +88,7 @@ export function Experience() {
                   <div className="flex flex-wrap gap-2 mb-2">
                     {edu.status && (
                       <span className="font-mono text-xs uppercase tracking-wider border border-line px-2 py-0.5 rounded">
-                        {statusLabel(edu.status)}
+                        {formatStatus(edu.status)}
                       </span>
                     )}
                     {edu.location && (
@@ -102,54 +103,31 @@ export function Experience() {
           </div>
         </div>
 
-        {certifications.length > 0 && (
-          <div>
+        {certSkills.length > 0 && (
+          <div className="mb-12">
             <Reveal>
               <h3 className="font-mono text-xs uppercase tracking-[0.2em] text-muted mb-4">
-                {ui.certification}
+                {ui.certification} — {ui.certSkills}
               </h3>
             </Reveal>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {certifications.map((cert, i) => (
-                <Reveal key={cert.id} delay={i * 80}>
-                  <button
-                    type="button"
-                    onClick={() => setActiveCert(cert)}
-                    className="group w-full overflow-hidden rounded-2xl border border-line bg-paper text-left card-lift hover:border-ink/20 transition-colors"
-                    data-cursor={ui.viewCert}
-                  >
-                    {cert.image ? (
-                      <div className="relative aspect-[16/10] overflow-hidden border-b border-line bg-ink/[0.03]">
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img
-                          src={cert.image}
-                          alt=""
-                          className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
-                          loading="lazy"
-                          decoding="async"
-                        />
-                        <span className="absolute bottom-3 right-3 rounded-full bg-ink/80 px-2.5 py-1 font-mono text-xs uppercase tracking-wider text-white opacity-0 transition-opacity group-hover:opacity-100">
-                          {ui.viewCert}
-                        </span>
-                      </div>
-                    ) : null}
-                    <div className="p-6">
-                      <div className="mb-3 flex flex-wrap items-center gap-2">
-                        <span className="font-mono text-xs text-muted uppercase tracking-wider group-hover:text-accent transition-colors">
-                          {cert.period}
-                        </span>
-                        {cert.status ? (
-                          <span className="font-mono text-xs uppercase tracking-wider border border-line px-2 py-0.5 rounded">
-                            {statusLabel(cert.status)}
-                          </span>
-                        ) : null}
-                      </div>
-                      <h4 className="text-sm font-bold mb-2 leading-snug">{cert.title}</h4>
-                      <p className="text-xs text-accent font-semibold mb-2">{cert.institution}</p>
-                      <p className="text-xs text-muted leading-relaxed line-clamp-3">{cert.description}</p>
-                    </div>
-                  </button>
-                </Reveal>
+              {certSkills.map((cert, i) => (
+                <CertCard key={cert.id} cert={cert} delay={i * 80} onOpen={setActiveCert} />
+              ))}
+            </div>
+          </div>
+        )}
+
+        {certLoisirs.length > 0 && (
+          <div>
+            <Reveal>
+              <h3 className="font-mono text-xs uppercase tracking-[0.2em] text-muted mb-4">
+                {ui.certification} — {ui.certLoisirs}
+              </h3>
+            </Reveal>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {certLoisirs.map((cert, i) => (
+                <CertCard key={cert.id} cert={cert} delay={i * 80} onOpen={setActiveCert} />
               ))}
             </div>
           </div>
@@ -158,5 +136,58 @@ export function Experience() {
 
       <CertificationModal certification={activeCert} onClose={() => setActiveCert(null)} />
     </section>
+  );
+}
+
+function CertCard({
+  cert,
+  delay,
+  onOpen,
+}: {
+  cert: CertificationItem;
+  delay: number;
+  onOpen: (cert: CertificationItem) => void;
+}) {
+  const ui = getUi();
+  return (
+    <Reveal delay={delay}>
+      <button
+        type="button"
+        onClick={() => onOpen(cert)}
+        className="group w-full overflow-hidden rounded-2xl border border-line bg-paper text-left card-lift hover:border-ink/20 transition-colors"
+        data-cursor={ui.viewCert}
+      >
+        {cert.image ? (
+          <div className="relative aspect-[16/10] overflow-hidden border-b border-line bg-ink/[0.03]">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={cert.image}
+              alt=""
+              className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
+              loading="lazy"
+              decoding="async"
+            />
+            <span className="absolute bottom-3 right-3 rounded-full bg-ink/80 px-2.5 py-1 font-mono text-xs uppercase tracking-wider text-white opacity-0 transition-opacity group-hover:opacity-100">
+              {ui.viewCert}
+            </span>
+          </div>
+        ) : null}
+        <div className="p-6">
+          <div className="mb-3 flex flex-wrap items-center gap-2">
+            <span className="font-mono text-xs text-muted uppercase tracking-wider group-hover:text-accent transition-colors">
+              {cert.period}
+            </span>
+            {cert.status ? (
+              <span className="font-mono text-xs uppercase tracking-wider border border-line px-2 py-0.5 rounded">
+                {formatStatus(cert.status)}
+              </span>
+            ) : null}
+          </div>
+          <h4 className="text-sm font-bold mb-2 leading-snug">{cert.title}</h4>
+          <p className="text-xs text-accent font-semibold mb-2">{cert.institution}</p>
+          <p className="text-xs text-muted leading-relaxed line-clamp-3">{cert.description}</p>
+        </div>
+      </button>
+    </Reveal>
   );
 }

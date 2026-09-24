@@ -2,8 +2,7 @@
 
 import { useEffect } from 'react';
 import type { CertificationItem } from '@/content/certifications';
-import { getLocale, getUi } from '@/lib/locale';
-import { levelEn } from '@/content/en';
+import { formatStatus, getUi } from '@/lib/locale';
 
 type Props = {
   certification: CertificationItem | null;
@@ -12,7 +11,6 @@ type Props = {
 
 export function CertificationModal({ certification, onClose }: Props) {
   const ui = getUi();
-  const locale = getLocale();
 
   useEffect(() => {
     if (!certification) return;
@@ -33,11 +31,7 @@ export function CertificationModal({ certification, onClose }: Props) {
   if (!certification) return null;
 
   const titleId = `cert-${certification.id}-title`;
-  const statusLabel = certification.status
-    ? locale === 'en'
-      ? levelEn[certification.status] ?? certification.status
-      : certification.status
-    : undefined;
+  const statusLabel = formatStatus(certification.status);
 
   return (
     <div

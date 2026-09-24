@@ -208,6 +208,10 @@ export const uiEn = {
   code: 'Code',
   openProject: 'Open project',
   viewCert: 'View certificate',
+  certSkills: 'Skills & training',
+  certLoisirs: 'Hobbies & games',
+  cvTitle: 'Curriculum vitae',
+  cvOpenTab: 'Open in a new tab',
 };
 
 export const uiFr = {
@@ -284,6 +288,10 @@ export const uiFr = {
   code: 'Code',
   openProject: 'Ouvrir le projet',
   viewCert: 'Voir le certificat',
+  certSkills: 'Compétences & formations',
+  certLoisirs: 'Loisirs & jeux',
+  cvTitle: 'Curriculum vitae',
+  cvOpenTab: 'Ouvrir dans un nouvel onglet',
 };
 
 export const levelEn: Record<string, string> = {

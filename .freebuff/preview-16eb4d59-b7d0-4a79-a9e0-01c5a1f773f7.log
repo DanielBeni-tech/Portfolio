@@ -69,3 +69,61 @@ Import trace for requested module:
  ✓ Compiled in 2.7s (641 modules)
  GET / 200 in 965ms
  GET / 200 in 932ms
+ ✓ Compiled in 2.5s (641 modules)
+ GET / 200 in 497ms
+ GET / 200 in 104ms
+ ✓ Compiled in 1626ms (641 modules)
+ GET / 200 in 361ms
+ GET / 200 in 77ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ⨯ ReferenceError: getLocale is not defined
+    at Experience (src/components/Experience.tsx:17:18)
+  15 |   useLocale();
+  16 |   const ui = getUi();
+> 17 |   const locale = getLocale();
+     |                  ^
+  18 |   const experiences = getExperiences();
+  19 |   const education = getEducation();
+  20 |   const certSkills = getCertifications(); {
+  digest: '3935221955'
+}
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ⨯ ReferenceError: getLocale is not defined
+    at Experience (src/components/Experience.tsx:17:18)
+  15 |   useLocale();
+  16 |   const ui = getUi();
+> 17 |   const locale = getLocale();
+     |                  ^
+  18 |   const experiences = getExperiences();
+  19 |   const education = getEducation();
+  20 |   const certSkills = getCertifications(); {
+  digest: '3935221955'
+}
+ GET / 500 in 1299ms
+ GET / 500 in 446ms
+ ✓ Compiled in 1239ms (641 modules)
+ ⨯ ReferenceError: getLocale is not defined
+    at Experience (src/components/Experience.tsx:17:18)
+  15 |   useLocale();
+  16 |   const ui = getUi();
+> 17 |   const locale = getLocale();
+     |                  ^
+  18 |   const experiences = getExperiences();
+  19 |   const education = getEducation();
+  20 |   const certSkills = getCertifications(); {
+  digest: '3935221955'
+}
+ ⨯ ReferenceError: getLocale is not defined
+    at Experience (src/components/Experience.tsx:17:18)
+  15 |   useLocale();
+  16 |   const ui = getUi();
+> 17 |   const locale = getLocale();
+     |                  ^
+  18 |   const experiences = getExperiences();
+  19 |   const education = getEducation();
+  20 |   const certSkills = getCertifications(); {
+  digest: '3935221955'
+}
+ GET / 500 in 771ms
+ GET / 500 in 278ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
