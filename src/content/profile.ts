@@ -132,6 +132,7 @@ const profileFr = {
   github: 'https://github.com/DanielBeni-tech',
   linkedin: 'https://linkedin.com/in/daniel-beni',
   cvUrl: '/CV-Daniel-Beni.pdf',
+  cvDownload: 'CV-Daniel-Beni.pdf',
   socials: [
     { label: 'GitHub', href: 'https://github.com/DanielBeni-tech', icon: 'github' },
     { label: 'LinkedIn', href: 'https://linkedin.com/in/daniel-beni', icon: 'linkedin' },

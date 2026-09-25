@@ -5,6 +5,7 @@ import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { CustomCursor } from '@/components/CustomCursor';
 import { LocaleProvider } from '@/components/LocaleProvider';
+import { CvProvider } from '@/components/CvModal';
 
 const manrope = Manrope({
   subsets: ['latin'],
@@ -48,9 +49,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           />
           <CustomCursor />
           <LocaleProvider>
-            <Navbar />
-            {children}
-            <Footer />
+            <CvProvider>
+              <Navbar />
+              {children}
+              <Footer />
+            </CvProvider>
           </LocaleProvider>
         </div>
       </body>
