@@ -156,7 +156,7 @@ export function Hero() {
             </a>
             <a
               href={profile.cvUrl}
-              download={profile.cvDownload}
+              download="CV-Daniel-Beni.pdf"
               className="pill text-sm"
             >
               {ui.download}

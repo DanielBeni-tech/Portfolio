@@ -2,11 +2,7 @@
 
 import { useState } from 'react';
 import { getExperiences, getEducation } from '@/content/experience';
-import {
-  getCertifications,
-  getCertificationsLoisirs,
-  type CertificationItem,
-} from '@/content/certifications';
+import { getCertifications, type CertificationItem } from '@/content/certifications';
 import { CertificationModal } from '@/components/CertificationModal';
 import { Reveal } from '@/components/Reveal';
 import { formatStatus, getUi, useLocale } from '@/lib/locale';
@@ -17,7 +13,6 @@ export function Experience() {
   const experiences = getExperiences();
   const education = getEducation();
   const certSkills = getCertifications();
-  const certLoisirs = getCertificationsLoisirs();
   const [activeCert, setActiveCert] = useState<CertificationItem | null>(null);
 
   return (
@@ -104,7 +99,7 @@ export function Experience() {
         </div>
 
         {certSkills.length > 0 && (
-          <div className="mb-12">
+          <div>
             <Reveal>
               <h3 className="font-mono text-xs uppercase tracking-[0.2em] text-muted mb-4">
                 {ui.certification} — {ui.certSkills}
@@ -112,21 +107,6 @@ export function Experience() {
             </Reveal>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {certSkills.map((cert, i) => (
-                <CertCard key={cert.id} cert={cert} delay={i * 80} onOpen={setActiveCert} />
-              ))}
-            </div>
-          </div>
-        )}
-
-        {certLoisirs.length > 0 && (
-          <div>
-            <Reveal>
-              <h3 className="font-mono text-xs uppercase tracking-[0.2em] text-muted mb-4">
-                {ui.certification} — {ui.certLoisirs}
-              </h3>
-            </Reveal>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {certLoisirs.map((cert, i) => (
                 <CertCard key={cert.id} cert={cert} delay={i * 80} onOpen={setActiveCert} />
               ))}
             </div>

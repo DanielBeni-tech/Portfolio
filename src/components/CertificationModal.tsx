@@ -1,8 +1,8 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import type { CertificationItem } from '@/content/certifications';
-import { formatStatus, getUi } from '@/lib/locale';
+import { getUi, useLocale, formatStatus } from '@/lib/locale';
 
 type Props = {
   certification: CertificationItem | null;
@@ -11,11 +11,18 @@ type Props = {
 
 export function CertificationModal({ certification, onClose }: Props) {
   const ui = getUi();
+  const [fullView, setFullView] = useState(false);
 
   useEffect(() => {
     if (!certification) return;
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose();
+      if (e.key === 'Escape') {
+        if (fullView) {
+          setFullView(false);
+        } else {
+          onClose();
+        }
+      }
     };
     const previous = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
@@ -26,9 +33,39 @@ export function CertificationModal({ certification, onClose }: Props) {
       delete document.documentElement.dataset.modal;
       document.removeEventListener('keydown', onKey);
     };
-  }, [certification, onClose]);
+  }, [certification, onClose, fullView]);
 
   if (!certification) return null;
+
+  if (fullView && certification.image) {
+    return (
+      <div
+        className="fixed inset-0 z-[310] flex items-center justify-center bg-ink/90"
+        onClick={() => setFullView(false)}
+      >
+        <div className="relative">
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              setFullView(false);
+            }}
+            aria-label={ui.close}
+            className="absolute right-4 top-4 z-20 grid size-10 place-items-center rounded-full border border-line bg-paper text-lg transition-colors hover:bg-ink hover:text-white"
+          >
+            ✕
+          </button>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={certification.image}
+            alt={certification.title}
+            className="max-h-[90vh] max-w-[90vw] object-contain"
+            decoding="async"
+          />
+        </div>
+      </div>
+    );
+  }
 
   const titleId = `cert-${certification.id}-title`;
   const statusLabel = formatStatus(certification.status);
@@ -59,7 +96,9 @@ export function CertificationModal({ certification, onClose }: Props) {
         </button>
 
         {certification.image ? (
-          <div className="relative overflow-hidden bg-ink/5 md:col-span-5">
+          <div className="relative overflow-hidden bg-ink/5 md:col-span-5 cursor-pointer"
+            onClick={() => setFullView(true)}
+          >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={certification.image}

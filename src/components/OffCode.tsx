@@ -1,21 +1,21 @@
 'use client';
 
-import { getCertificationsLoisirs } from '@/content/certifications';
+import { useState } from 'react';
+import { getCertificationsLoisirs, type CertificationItem } from '@/content/certifications';
 import { getHobbies } from '@/content/hobbies';
 import { Reveal } from '@/components/Reveal';
-import { getUi, useLocale } from '@/lib/locale';
+import { formatStatus, getUi, useLocale } from '@/lib/locale';
 import { CertificationModal } from '@/components/CertificationModal';
-import { useState } from 'react';
 
 export function OffCode() {
   useLocale();
   const ui = getUi();
   const certLoisirs = getCertificationsLoisirs();
   const hobbies = getHobbies();
-  const [activeCert, setActiveCert] = useState<null | { id: string; title: string; institution: string; description: string; image?: string; period: string; status?: string; tags?: string[] }>(null);
+  const [activeCert, setActiveCert] = useState<CertificationItem | null>(null);
 
   return (
-    <section id="offcode" className="px-3 pb-16 md:px-6 md:pb-28">
+    <section id="life" className="px-3 pb-16 md:px-6 md:pb-28">
       <div className="mx-auto max-w-[1440px]">
         <Reveal>
           <div className="mb-10 flex items-baseline justify-between md:mb-16">
@@ -95,17 +95,19 @@ export function OffCode() {
                 {ui.hobbies}
               </h3>
             </Reveal>
-            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            <ul className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
               {hobbies.map((hobby) => (
-                <li key={hobby.id} className="border-t border-white/15 pt-4">
+                <li key={hobby.id} className="border-t border-line pt-4">
                   <p className="font-display text-xl font-bold">{hobby.title}</p>
-                  <p className="mt-1 text-sm text-white/65">{hobby.detail}</p>
+                  <p className="mt-1 text-sm text-muted">{hobby.detail}</p>
                 </li>
               ))}
-            </div>
+            </ul>
           </div>
         </div>
       </div>
+
+      <CertificationModal certification={activeCert} onClose={() => setActiveCert(null)} />
     </section>
   );
 }

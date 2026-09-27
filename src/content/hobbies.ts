@@ -27,6 +27,16 @@ export const hobbies: HobbyItem[] = [
     title: 'Jeux vidéo',
     detail: 'Hors écran de code',
   },
+  {
+    id: 'cooking',
+    title: 'Cuisine',
+    detail: 'Plats créatifs et expérimentaux',
+  },
+  {
+    id: 'events',
+    title: "Animation d'événements",
+    detail: 'Maître de cérémonie et organisateur',
+  },
 ];
 
 const hobbiesEn: HobbyItem[] = [
@@ -34,6 +44,8 @@ const hobbiesEn: HobbyItem[] = [
   { id: 'football', title: 'Football', detail: 'On the pitch' },
   { id: 'scrabble', title: 'Scrabble', detail: 'Interschool prize — secondary education' },
   { id: 'games', title: 'Video games', detail: 'Off the code screen' },
+  { id: 'cooking', title: 'Cooking', detail: 'Creative and experimental dishes' },
+  { id: 'events', title: 'Event Hosting', detail: 'Master of ceremonies and organizer' },
 ];
 
 export function getHobbies() {

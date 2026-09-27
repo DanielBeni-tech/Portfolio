@@ -4,6 +4,7 @@ import { useRef } from 'react';
 import { profile } from '@/content/profile';
 import { Reveal } from '@/components/Reveal';
 import { getUi, useLocale } from '@/lib/locale';
+import { useCvModal } from '@/components/CvModal';
 import { gsap, registerGsap, useGSAP } from '@/lib/gsap';
 
 registerGsap();
@@ -11,6 +12,7 @@ registerGsap();
 export function About() {
   useLocale();
   const ui = getUi();
+  const openCv = useCvModal();
   const rootRef = useRef<HTMLElement>(null);
 
   useGSAP(
@@ -183,17 +185,17 @@ export function About() {
                 </li>
               ))}
             </ul>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <a href={profile.cvUrl} target="_blank" rel="noreferrer" className="btn-dark text-sm" data-cursor="CV">
-                {ui.readCv}
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} className="size-4">
-                  <path d="M7 17 17 7M8 7h9v9" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </a>
-              <a href={profile.cvUrl} download={profile.cvDownload} className="pill text-sm">
-                {ui.downloadPdf}
-              </a>
-            </div>
+             <div className="mt-8 flex flex-wrap gap-3">
+               <button onClick={() => openCv()} className="btn-dark text-sm" data-cursor="CV">
+                 {ui.readCv}
+                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} className="size-4">
+                   <path d="M7 17 17 7M8 7h9v9" strokeLinecap="round" strokeLinejoin="round" />
+                 </svg>
+               </button>
+               <button onClick={() => openCv()} className="pill text-sm">
+                 {ui.downloadPdf}
+               </button>
+             </div>
           </div>
         </Reveal>
       </div>
