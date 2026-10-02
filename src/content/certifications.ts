@@ -9,6 +9,7 @@ export interface CertificationItem {
   institution: string;
   description: string;
   image?: string;
+  url?: string;
   status?: 'Terminé' | 'En cours';
   tags?: string[];
 }
@@ -98,6 +99,19 @@ export const certifications: CertificationItem[] = [
     status: 'Terminé',
     tags: ['Scrabble', 'Francophonie', 'Stratégie'],
   },
+  {
+    id: 'mcp-introduction-claude-academy',
+    category: 'skill',
+    period: '2 Oct 2026',
+    title: 'Introduction to Model Context Protocol',
+    institution: 'Anthropic Claude Academy',
+    description:
+      "Completed the Introduction to Model Context Protocol course offered by Anthropic's Claude Academy, covering fundamentals of MCP, its architecture, and how to build MCP servers and clients.",
+    image: '/certifications/introduction-mcp.png',
+    url: '/certifications/claude-academy-badge-introduction-to-model-context-protocol-1.pdf',
+    status: 'Terminé',
+    tags: ['MCP', 'Anthropic', 'Claude', 'AI'],
+  },
 ];
 
 const certificationsEn: CertificationItem[] = [
@@ -157,6 +171,15 @@ const certificationsEn: CertificationItem[] = [
     description:
       'Certificate of participation in the interschool simultaneous youth tournament final, co-organized by FECASCRAB and the OIF Relations Directorate, during Francophonie Week 2023 — Ministry of External Relations, Yaoundé.',
     tags: ['Scrabble', 'Francophonie', 'Strategy'],
+  },
+  {
+    ...certifications[7],
+    period: '2 Oct 2026',
+    title: 'Introduction to Model Context Protocol',
+    institution: 'Anthropic Claude Academy',
+    description:
+      'Completed the Introduction to Model Context Protocol course offered by Anthropic\'s Claude Academy, covering fundamentals of MCP, its architecture, and how to build MCP servers and clients.',
+    tags: ['MCP', 'Anthropic', 'Claude', 'AI'],
   },
 ];
 

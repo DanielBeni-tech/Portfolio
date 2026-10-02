@@ -98,6 +98,7 @@ export function Experience() {
           </div>
         </div>
 
+        {/* Certifications — skills only ; les loisirs vivent dans /offcode */}
         {certSkills.length > 0 && (
           <div>
             <Reveal>
@@ -129,44 +130,52 @@ function CertCard({
   onOpen: (cert: CertificationItem) => void;
 }) {
   const ui = getUi();
+  const className =
+    'group block w-full overflow-hidden rounded-2xl border border-line bg-paper text-left card-lift hover:border-ink/20 transition-colors';
+  const body = (
+    <>
+      {cert.image ? (
+        <div className="relative aspect-[16/10] overflow-hidden border-b border-line bg-ink/[0.03]">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={cert.image}
+            alt=""
+            className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
+            loading="lazy"
+            decoding="async"
+          />
+          <span className="absolute bottom-3 right-3 rounded-full bg-ink/80 px-2.5 py-1 font-mono text-xs uppercase tracking-wider text-white opacity-0 transition-opacity group-hover:opacity-100">
+            {ui.viewCert}
+          </span>
+        </div>
+      ) : null}
+      <div className="p-6">
+        <div className="mb-3 flex flex-wrap items-center gap-2">
+          <span className="font-mono text-xs text-muted uppercase tracking-wider group-hover:text-accent transition-colors">
+            {cert.period}
+          </span>
+          {cert.status ? (
+            <span className="font-mono text-xs uppercase tracking-wider border border-line px-2 py-0.5 rounded">
+              {formatStatus(cert.status)}
+            </span>
+          ) : null}
+        </div>
+        <h4 className="text-sm font-bold mb-2 leading-snug">{cert.title}</h4>
+        <p className="text-xs text-accent font-semibold mb-2">{cert.institution}</p>
+        <p className="text-xs text-muted leading-relaxed line-clamp-3">{cert.description}</p>
+      </div>
+    </>
+  );
+
   return (
     <Reveal delay={delay}>
       <button
         type="button"
         onClick={() => onOpen(cert)}
-        className="group w-full overflow-hidden rounded-2xl border border-line bg-paper text-left card-lift hover:border-ink/20 transition-colors"
+        className={className}
         data-cursor={ui.viewCert}
       >
-        {cert.image ? (
-          <div className="relative aspect-[16/10] overflow-hidden border-b border-line bg-ink/[0.03]">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={cert.image}
-              alt=""
-              className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
-              loading="lazy"
-              decoding="async"
-            />
-            <span className="absolute bottom-3 right-3 rounded-full bg-ink/80 px-2.5 py-1 font-mono text-xs uppercase tracking-wider text-white opacity-0 transition-opacity group-hover:opacity-100">
-              {ui.viewCert}
-            </span>
-          </div>
-        ) : null}
-        <div className="p-6">
-          <div className="mb-3 flex flex-wrap items-center gap-2">
-            <span className="font-mono text-xs text-muted uppercase tracking-wider group-hover:text-accent transition-colors">
-              {cert.period}
-            </span>
-            {cert.status ? (
-              <span className="font-mono text-xs uppercase tracking-wider border border-line px-2 py-0.5 rounded">
-                {formatStatus(cert.status)}
-              </span>
-            ) : null}
-          </div>
-          <h4 className="text-sm font-bold mb-2 leading-snug">{cert.title}</h4>
-          <p className="text-xs text-accent font-semibold mb-2">{cert.institution}</p>
-          <p className="text-xs text-muted leading-relaxed line-clamp-3">{cert.description}</p>
-        </div>
+        {body}
       </button>
     </Reveal>
   );

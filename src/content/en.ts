@@ -213,6 +213,7 @@ export const uiEn = {
   certLoisirs: 'Hobbies & games',
   cvTitle: 'Curriculum vitae',
   cvOpenTab: 'Open in a new tab',
+  zoomCert: 'Click to enlarge',
 };
 
 export const uiFr = {
@@ -294,6 +295,7 @@ export const uiFr = {
   certLoisirs: 'Loisirs & jeux',
   cvTitle: 'Curriculum vitae',
   cvOpenTab: 'Ouvrir dans un nouvel onglet',
+  zoomCert: 'Cliquer pour agrandir',
 };
 
 export const levelEn: Record<string, string> = {

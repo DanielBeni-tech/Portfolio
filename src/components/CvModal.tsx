@@ -6,9 +6,10 @@ import { LocaleFlags } from '@/components/Flags';
 
 type CvLang = 'fr' | 'en';
 
-const CV_FILES: Record<CvLang, { url: string; download: string }> = {
-  fr: { url: '/CV-Daniel-Beni.pdf', download: 'CV-Daniel-Beni.pdf' },
-  en: { url: '/CV-Daniel-Beni-EN.pdf', download: 'CV-Daniel-Beni-EN.pdf' },
+/** Image rastérisée pour l'affichage (pas de visionneuse PDF navigateur) + PDF pour le téléchargement. */
+const CV_FILES: Record<CvLang, { image: string; pdf: string; download: string }> = {
+  fr: { image: '/cv/cv-fr.webp', pdf: '/CV-Daniel-Beni.pdf', download: 'CV-Daniel-Beni.pdf' },
+  en: { image: '/cv/cv-en.webp', pdf: '/CV-Daniel-Beni-EN.pdf', download: 'CV-Daniel-Beni-EN.pdf' },
 };
 
 const CvOpenContext = createContext<(lang?: CvLang) => void>(() => {});
@@ -73,7 +74,7 @@ function CvModal({
         role="dialog"
         aria-modal="true"
         aria-label={ui.cvTitle}
-        className="flex max-h-[92vh] w-full max-w-4xl flex-col overflow-hidden rounded-2xl border border-line bg-paper"
+        className="flex max-h-[94vh] w-full max-w-5xl flex-col overflow-hidden rounded-2xl border border-line bg-paper"
         style={{ animation: 'fadeUp 0.45s cubic-bezier(0.16,1,0.3,1) both' }}
       >
         <div className="flex items-center justify-between gap-3 border-b border-line px-4 py-3 md:px-6">
@@ -92,18 +93,21 @@ function CvModal({
           </div>
         </div>
 
-        <iframe src={cv.url} title={ui.cvTitle} className="h-[80vh] w-full flex-1 bg-white" />
+        {/* Le CV s'affiche comme une image — aucune barre d'outils PDF navigateur. */}
+        <div className="min-h-0 flex-1 overflow-y-auto bg-ink/5 p-3 md:p-5">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={cv.image}
+            alt={ui.cvTitle}
+            className="mx-auto block w-full max-w-3xl rounded-lg border border-line bg-white shadow-xl"
+          />
+        </div>
 
-        <div className="flex flex-wrap items-center justify-between gap-3 border-t border-line px-4 py-3 md:px-6">
-          <a
-            href={cv.url}
-            target="_blank"
-            rel="noreferrer"
-            className="font-mono text-xs uppercase tracking-wider text-muted transition-colors hover:text-ink"
-          >
-            {ui.cvOpenTab} ↗
-          </a>
-          <a href={cv.url} download={cv.download} className="btn-dark text-sm">
+        <div className="flex items-center justify-end gap-3 border-t border-line px-4 py-3 md:px-6">
+          <span className="mr-auto hidden font-mono text-[11px] uppercase tracking-wider text-muted sm:block">
+            {ui.zoomCert} → {ui.download}
+          </span>
+          <a href={cv.pdf} download={cv.download} className="btn-dark text-sm">
             {ui.download} · {lang === 'en' ? 'EN' : 'FR'}
           </a>
         </div>

@@ -5,7 +5,7 @@ import { getServices } from '@/content/services';
 import { Reveal } from '@/components/Reveal';
 import { TechMarquee } from '@/components/TechMarquee';
 import { getUi, useLocale } from '@/lib/locale';
-import { gsap, registerGsap, SplitText, useGSAP } from '@/lib/gsap';
+import { gsap, registerGsap, ScrollTrigger, SplitText, useGSAP } from '@/lib/gsap';
 
 registerGsap();
 
@@ -18,10 +18,12 @@ export function Services() {
   useGSAP(
     () => {
       const mm = gsap.matchMedia();
+      let split: ReturnType<typeof SplitText.create> | undefined;
+
       mm.add('(prefers-reduced-motion: no-preference)', () => {
         const title = rootRef.current?.querySelector('.services-lead');
         if (title) {
-          const split = SplitText.create(title, { type: 'words', mask: 'lines', aria: 'auto' });
+          split = SplitText.create(title, { type: 'words', mask: 'lines', aria: 'auto' });
           gsap.from(split.words, {
             yPercent: 110,
             stagger: 0.04,
@@ -54,7 +56,21 @@ export function Services() {
         }
       });
 
-      return () => mm.revert();
+      // Filet de sécurité : si un ScrollTrigger rate son déclenchement (positions
+      // recalculées après le chargement des images, petits écrans), on réaffiche
+      // tout plutôt que de laisser la section /skills invisible.
+      const safety = window.setTimeout(() => {
+        if (split) gsap.set(split.words, { clearProps: 'all' });
+        gsap.set('.skill-card, .skill-num', { clearProps: 'all' });
+      }, 3000);
+      const refresh = () => ScrollTrigger.refresh();
+      window.addEventListener('load', refresh, { once: true });
+
+      return () => {
+        window.clearTimeout(safety);
+        window.removeEventListener('load', refresh);
+        mm.revert();
+      };
     },
     { scope: rootRef, dependencies: [ui.servicesLead] }
   );
