@@ -112,6 +112,19 @@ export const certifications: CertificationItem[] = [
     status: 'Terminé',
     tags: ['MCP', 'Anthropic', 'Claude', 'AI'],
   },
+  {
+    id: 'mcp-advanced-claude-academy',
+    category: 'skill',
+    period: '5 Oct 2026',
+    title: 'Model Context Protocol: Advanced Topics',
+    institution: 'Anthropic Claude Academy',
+    description:
+      "Completed the Model Context Protocol: Advanced Topics course offered by Anthropic's Claude Academy, going deeper into advanced MCP capabilities for building capable servers and clients.",
+    image: '/certifications/mcp-advanced-topics.png',
+    url: '/certifications/claude-academy-badge-model-context-protocol-advanced-topics.pdf',
+    status: 'Terminé',
+    tags: ['MCP', 'Anthropic', 'Claude', 'AI'],
+  },
 ];
 
 const certificationsEn: CertificationItem[] = [
@@ -179,6 +192,15 @@ const certificationsEn: CertificationItem[] = [
     institution: 'Anthropic Claude Academy',
     description:
       'Completed the Introduction to Model Context Protocol course offered by Anthropic\'s Claude Academy, covering fundamentals of MCP, its architecture, and how to build MCP servers and clients.',
+    tags: ['MCP', 'Anthropic', 'Claude', 'AI'],
+  },
+  {
+    ...certifications[8],
+    period: '5 Oct 2026',
+    title: 'Model Context Protocol: Advanced Topics',
+    institution: 'Anthropic Claude Academy',
+    description:
+      'Completed the Model Context Protocol: Advanced Topics course offered by Anthropic\'s Claude Academy, going deeper into advanced MCP capabilities for building capable servers and clients.',
     tags: ['MCP', 'Anthropic', 'Claude', 'AI'],
   },
 ];
